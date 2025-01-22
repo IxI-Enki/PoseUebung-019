@@ -3,26 +3,30 @@
 ---
 # <p align="center"> Music Store Manager </p>
 
-<div align="right"> 
- 
+<div align="right">
+
  <details>
+
   <summary>
    $\color{lightgreen}\large {\ click\ }
     \color{ darkgrey }\tiny  { to\ show\ }
     \color{ yellow }         { work\ that\ needs\ to\ be\ done\ }$
+
   </summary>
-  
-  <div align="left"> 
-   
-  > - [ ] Implementation of SQLite Database
-  > - [ ] Implementation of Serializable
-  > - Addition of UML-Diagrams:
-  >   > - [ ] Usecase Diagram
-  >   > - [ ] Class Diagram
-  >   > - [ ] Sequence Diagram
-   
- </div>
+
+  <div align="left">
+
+- 1. Implementation of SQLite Database [ ]
+- 2. Implementation of Serializable [ ]
+- 3. Addition of UML-Diagrams: [ ]
+    > - i. Usecase Diagram [ ]
+    > - ii. Class Diagram [ ]
+    > - iii. Sequence Diagram [ ]
+
+  </div>
+
  </details>
+
 </div>
 
 ---
@@ -32,11 +36,11 @@
   </summary>
  
   <div align="left"> 
- 
+
   - ### *Repositories - Gehrer*:  
-    > - [ Template - Git/Readme.md ](https://github.com/leoggehrer/MusicStore-Template/blob/master/README.md)
-    > - [ Serializable - Git/Repo ](https://github.com/leoggehrer/MusicStoreSerializable-Template)
-    > - [ Full Part A - Git/Readme.md ](https://github.com/leoggehrer/MusicStorePartA/blob/master/README.md)
+  > - [ Template - Git/Readme.md ](https://github.com/leoggehrer/MusicStore-Template/blob/master/README.md)
+  > - [ Serializable - Git/Repo ](https://github.com/leoggehrer/MusicStoreSerializable-Template)
+  > - [ Full Part A - Git/Readme.md ](https://github.com/leoggehrer/MusicStorePartA/blob/master/README.md)
 
   </div>
 </details>
