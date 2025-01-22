@@ -3,15 +3,44 @@
 ---
 # <p align="center"> Music Store Manager </p>
 
-
 <div align="right"> 
-
- - [ ] Implementation of SQLite Database
- - [ ] Implementation of Serializeable
- - [ ] Addition of UML-Diagrams:
-     - [ ] Usecase Diagram
-     - [ ] Class Diagram
-     - [ ] Sequence Diagram
-     - [ ] 
-
+ 
+ <details>
+  <summary>
+   $\color{lightgreen}\large {\ click\ }
+    \color{ darkgrey }\tiny  { to\ show\ }
+    \color{ yellow }         { work\ that\ needs\ to\ be\ done\ }$
+  </summary>
+  
+  <div align="left"> 
+   
+  > - [ ] Implementation of SQLite Database
+  > - [ ] Implementation of Serializable
+  > - Addition of UML-Diagrams:
+  >   > - [ ] Usecase Diagram
+  >   > - [ ] Class Diagram
+  >   > - [ ] Sequence Diagram
+   
+ </div>
+ </details>
 </div>
+
+---
+
+<details>
+  <summary> $\color{lightgreen}{\ click\ }\color{darkgrey}{to\ show} \color{green}{\ given\ exercises\ :\ }$ 
+  </summary>
+ 
+  <div align="left"> 
+ 
+  - ### *Repositories - Gehrer*:  
+    > - [ Template - Git/Readme.md ](https://github.com/leoggehrer/MusicStore-Template/blob/master/README.md)
+    > - [ Serializable - Git/Repo ](https://github.com/leoggehrer/MusicStoreSerializable-Template)
+    > - [ Full Part A - Git/Readme.md ](https://github.com/leoggehrer/MusicStorePartA/blob/master/README.md)
+
+  </div>
+</details>
+
+---
+
+
