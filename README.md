@@ -16,12 +16,12 @@
 
   <div align="left">
 
-- 1. Implementation of SQLite Database [ ]
-- 2. Implementation of Serializable [ ]
-- 3. Addition of UML-Diagrams: [ ]
-    > - i. Usecase Diagram [ ]
-    > - ii. Class Diagram [ ]
-    > - iii. Sequence Diagram [ ]
+  > - - [ ] Implementation of SQLite Database
+  > - - [ ] Implementation of Serializable
+  > - Addition of UML-Diagrams:
+  >   > - - [ ] Usecase Diagram
+  >   > - - [ ] Class Diagram
+  >   > - - [ ] Sequence Diagram
 
   </div>
 
