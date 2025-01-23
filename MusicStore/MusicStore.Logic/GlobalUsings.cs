@@ -9,10 +9,11 @@ global using System.Collections.Generic;
 global using System.Runtime.CompilerServices;
 
 global using MusicStore.Logic;
-global using MusicStore.Logic.Models;
-global using MusicStore.Logic.Statistics;
-global using MusicStore.Logic.DataContext;
+global using MusicStore.Logic.Entities;
 global using MusicStore.Logic.Contracts;
+global using MusicStore.Logic.Statistics;
+global using MusicStore.Logic.Extensions;
+global using MusicStore.Logic.DataContext;
 
 
 namespace MusicStore.Logic;

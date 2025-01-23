@@ -1,7 +1,4 @@
-﻿
-using MusicStore.Logic.Entities;
-
-namespace MusicStore.Logic.Contracts;
+﻿namespace MusicStore.Logic.Contracts;
 
 /// <summary>
 /// Represents an artist in the music store.

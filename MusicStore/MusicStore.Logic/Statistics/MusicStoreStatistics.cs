@@ -1,6 +1,4 @@
-﻿using MusicStore.Logic.Extensions;
-
-namespace MusicStore.Logic.Statistics;
+﻿namespace MusicStore.Logic.Statistics;
 
 public static class MusicStoreStatistics
 {

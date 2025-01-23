@@ -1,8 +1,4 @@
-﻿using MusicStore.Logic.DataContext;
-using MusicStore.Logic.Extensions;
-using MusicStore.Logic.Statistics;
-
-namespace MusicStore.ConApp;
+﻿namespace MusicStore.ConApp;
 
 internal class Program
 {

@@ -1,6 +1,4 @@
-﻿using MusicStore.Logic.Entities;
-
-namespace MusicStore.Logic.DataContext;
+﻿namespace MusicStore.Logic.DataContext;
 
 /// <summary>
 /// Represents the data context for the Music Store application.

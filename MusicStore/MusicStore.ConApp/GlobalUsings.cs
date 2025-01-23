@@ -8,7 +8,8 @@ global using System.Threading.Tasks;
 global using System.Collections.Generic;
 global using System.Runtime.CompilerServices;
 
-global using MusikStore.Logic;
-global using MusikStore.Logic.Models;
-global using MusikStore.Logic.Statistics;
-global using MusikStore.Logic.DataContext;
+global using MusicStore.Logic.DataContext;
+global using MusicStore.Logic.Extensions;
+global using MusicStore.Logic.Statistics;
+
+ 

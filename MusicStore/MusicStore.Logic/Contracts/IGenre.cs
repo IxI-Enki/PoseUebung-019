@@ -1,5 +1,4 @@
-﻿
-namespace MusicStore.Logic.Contracts;
+﻿namespace MusicStore.Logic.Contracts;
 
 /// <summary>
 /// Represents a music genre with an identifiable ID and a name.
