@@ -3,9 +3,9 @@
 /// <summary>
 /// Represents a track in the music store.
 /// </summary>
-[Serializable]
 [Table("Tracks")]
 [Index(nameof(Title), IsUnique = true)]
+[Serializable]
 public partial class Track : EntityObject, ITrack
 {
         #region Properties
@@ -18,31 +18,37 @@ public partial class Track : EntityObject, ITrack
         /// <summary>
         /// Gets or sets the genre ID.
         /// </summary>
+        [MaxLength( 100 )]
         public int GenreId { get; set; }
 
         /// <summary>
         /// Gets or sets the title of the track.
         /// </summary>
+        [MaxLength(100)]
         public string Title { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the composer of the track.
         /// </summary>
+        [MaxLength( 100 )]
         public string Composer { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the duration of the track in milliseconds.
         /// </summary>
+        [MaxLength( 100 )]
         public long Milliseconds { get; set; }
 
         /// <summary>
         /// Gets or sets the size of the track in bytes.
         /// </summary>
+        [MaxLength( 100 )]
         public long Bytes { get; set; }
 
         /// <summary>
         /// Gets or sets the unit price of the track.
         /// </summary>
+        [MaxLength( 100 )]
         public double UnitPrice { get; set; }
         #endregion Properties
 
@@ -67,7 +73,8 @@ public partial class Track : EntityObject, ITrack
         {
                 ArgumentNullException.ThrowIfNull( other );
 
-                Id = other.Id;
+                base.CopyProperties( other );
+
                 AlbumId = other.AlbumId;
                 GenreId = other.GenreId;
                 Title = other.Title;

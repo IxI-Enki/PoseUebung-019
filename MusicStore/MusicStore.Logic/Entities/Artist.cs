@@ -3,6 +3,8 @@
 /// <summary>
 /// Represents an artist in the music store.
 /// </summary>
+[Table( "Artists" )]
+[Index( nameof( Name ) , IsUnique = true )]
 [Serializable]
 public partial class Artist : EntityObject, IArtist
 {
@@ -10,6 +12,7 @@ public partial class Artist : EntityObject, IArtist
         /// <summary>
         /// Gets or sets the name of the artist.
         /// </summary>
+        [MaxLength(100)]
         public string Name { get; set; } = string.Empty;
         #endregion Properties
 
@@ -29,7 +32,8 @@ public partial class Artist : EntityObject, IArtist
         {
                 ArgumentNullException.ThrowIfNull( other );
 
-                Id = other.Id;
+                base.CopyProperties( other );
+
                 Name = other.Name;
         }
 

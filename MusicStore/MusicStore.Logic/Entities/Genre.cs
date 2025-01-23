@@ -3,6 +3,8 @@
 /// <summary>
 /// Represents a music genre with an identifiable ID and a name.
 /// </summary>
+[Table( "Genres" )]
+[Index( nameof( Name ) , IsUnique = true )]
 [Serializable]
 public partial class Genre : EntityObject, IGenre
 {
@@ -10,6 +12,7 @@ public partial class Genre : EntityObject, IGenre
         /// <summary>
         /// Gets or sets the name of the genre.
         /// </summary>
+        [MaxLength( 100 )]
         public string Name { get; set; } = string.Empty;
         #endregion Properties
 
@@ -28,8 +31,8 @@ public partial class Genre : EntityObject, IGenre
         public void CopyProperties( IGenre other )
         {
                 ArgumentNullException.ThrowIfNull( other );
+                base.CopyProperties( other );
 
-                Id = other.Id;
                 Name = other.Name;
         }
 

@@ -7,7 +7,7 @@ internal class Program
                 int index = 1;
                 string input = string.Empty;
 
-                MusicStoreContext context = new( );
+                Logic.Contracts.IContext? context = Logic.DataContext.Factory.CreateContext( );
 
                 // PrintGenres(context);
                 // PrintAlbums(context);
@@ -42,10 +42,10 @@ internal class Program
                                 switch(choice)
                                 {
                                         case 1:
-                                                MusicStoreStatistics.PrintArtistAndAlbum( context );
+                                                PrintArtists( context );
                                                 break;
                                         case 2:
-                                                MusicStoreStatistics.PrintArtistAndTracks( context );
+                                                AddArtist( context );
                                                 break;
                                         case 3:
                                                 MusicStoreStatistics.PrintArtistAndTimes( context );
@@ -78,44 +78,58 @@ internal class Program
                         }
                 }
         }
+        private static void AddArtist( Logic.Contracts.IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Add Artist:" );
+                Console.WriteLine( "------------" );
 
-        private static void PrintGenres( MusicStoreContext context )
+                var artist = new Logic.Entities.Artist( );
+
+                Console.Write( "Name [256]:          " );
+                artist.Name = Console.ReadLine( )!;
+
+                context.ArtistSet!.Add( artist );
+                context.SaveChanges( );
+        }
+
+        private static void PrintGenres( Logic.Contracts.IContext context )
         {
                 Console.WriteLine( );
                 Console.WriteLine( "Genres:" );
                 Console.WriteLine( "-------" );
 
-                foreach(var item in context.GenreSet)
+                foreach(var item in context.GenreSet!)
                         Console.WriteLine( $"{item}" );
         }
 
-        private static void PrintArtists( MusicStoreContext context )
+        private static void PrintArtists( Logic.Contracts.IContext context )
         {
                 Console.WriteLine( );
                 Console.WriteLine( "Artists:" );
                 Console.WriteLine( "-------" );
 
-                foreach(var item in context.ArtistSet)
+                foreach(var item in context.ArtistSet!)
                         Console.WriteLine( $"{item}" );
         }
 
-        private static void PrintAlbums( MusicStoreContext context )
+        private static void PrintAlbums( Logic.Contracts.IContext context )
         {
                 Console.WriteLine( );
                 Console.WriteLine( "Albums:" );
                 Console.WriteLine( "-------" );
 
-                foreach(var item in context.AlbumSet)
+                foreach(var item in context.AlbumSet!)
                         Console.WriteLine( $"{item}" );
         }
 
-        private static void PrintTracks( MusicStoreContext context )
+        private static void PrintTracks( Logic.Contracts.IContext context )
         {
                 Console.WriteLine( );
                 Console.WriteLine( "Tracks:" );
                 Console.WriteLine( "-------" );
 
-                foreach(var item in context.TrackSet)
+                foreach(var item in context.TrackSet!)
                         Console.WriteLine( $"{item}" );
         }
 }

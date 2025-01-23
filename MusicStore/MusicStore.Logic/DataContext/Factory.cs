@@ -1,4 +1,6 @@
-﻿namespace MusicStore.Logic.DataContext;
+﻿using SQLitePCL;
+
+namespace MusicStore.Logic.DataContext;
 
 /// <summary>
 /// Factory class to create instances of IMusicStoreContext.
@@ -12,6 +14,8 @@ public static class Factory
         public static IContext CreateContext( )
         {
                 var result = new MusicStoreContext( );
+
+                Batteries.Init(  );
 
                 result.Database.EnsureCreated( );
 

@@ -6,10 +6,11 @@
 public sealed class MusicStoreContext : DbContext, IContext
 {
         #region FIELDS
-        private static string ConnectionString = "data source=Data/CompanyManager.db";
+        private static string ConnectionString = "data source=MusicStore.db";
         #endregion
         protected override void OnConfiguring( DbContextOptionsBuilder optionsBuilder )
         {
+
                 optionsBuilder.UseSqlite( ConnectionString );
 
                 base.OnConfiguring( optionsBuilder );
@@ -41,22 +42,22 @@ public sealed class MusicStoreContext : DbContext, IContext
         /// <summary>
         /// Gets or sets the collection of genres.
         /// </summary>
-        public List<Entities.Genre> GenreList { get; set; }
+        public List<Entities.Genre>? GenreList { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of artists.
         /// </summary>
-        public List<Entities.Artist> ArtistList { get; set; }
+        public List<Entities.Artist>? ArtistList { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of albums.
         /// </summary>
-        public List<Entities.Album> AlbumList { get; set; }
+        public List<Entities.Album>? AlbumList { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of tracks.
         /// </summary>
-        public List<Entities.Track> TrackList { get; set; }
+        public List<Entities.Track>? TrackList { get; set; }
 
         #endregion
 
@@ -67,11 +68,12 @@ public sealed class MusicStoreContext : DbContext, IContext
         /// </summary>
         public MusicStoreContext( )
         {
-                GenreList = LoadGenresFromCsv( "Data/genres.csv" );
-                ArtistList = LoadArtistsFromCsv( "Data/artists.csv" );
-                AlbumList = LoadAlbumsFromCsv( "Data/albums.csv" , ArtistList );
-                TrackList = LoadTracksFromCsv( "Data/tracks.csv" , GenreList , AlbumList );
-                ArtistList.ForEach( a => a.Albums = AlbumList.Where( e => e.ArtistId == a.Id ).ToList( ) );
+               // GenreList = LoadGenresFromCsv( "Data/genres.csv" );
+               // ArtistList = LoadArtistsFromCsv( "Data/artists.csv" );
+               // AlbumList = LoadAlbumsFromCsv( "Data/albums.csv" , ArtistList );
+               // TrackList = LoadTracksFromCsv( "Data/tracks.csv" , GenreList , AlbumList );
+               // ArtistList.ForEach( a => a.Albums = AlbumList.Where( e => e.ArtistId == a.Id ).ToList( ) );
+               // ArtistSet!.ForEachAsync( a => a.Albums = AlbumList.Where( e => e.ArtistId == a.Id ).ToList( ) );
         }
 
         #endregion
