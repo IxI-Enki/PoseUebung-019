@@ -4,7 +4,7 @@
 /// Represents a music genre with an identifiable ID and a name.
 /// </summary>
 [Serializable]
-public partial class Genre : IdentityObject, IGenre
+public partial class Genre : EntityObject, IGenre
 {
         #region Properties
         /// <summary>

@@ -4,7 +4,7 @@
 /// Represents an artist in the music store.
 /// </summary>
 [Serializable]
-public partial class Artist : IdentityObject, IArtist
+public partial class Artist : EntityObject, IArtist
 {
         #region Properties
         /// <summary>

@@ -4,7 +4,7 @@
 /// Represents an album in the music store.
 /// </summary>
 [Serializable]
-public partial class Album : IdentityObject, IAlbum
+public partial class Album : EntityObject, IAlbum
 {
         #region Properties
         /// <summary>
