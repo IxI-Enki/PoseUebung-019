@@ -1,4 +1,6 @@
-﻿namespace MusicStore.Logic.Contracts;
+﻿using MusicStore.Logic.Entities;
+
+namespace MusicStore.Logic.Contracts;
 
 /// <summary>
 /// Represents a track in the music store.

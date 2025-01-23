@@ -1,5 +1,4 @@
-﻿
-namespace MusicStore.Logic.Models;
+﻿namespace MusicStore.Logic.Entities;
 
 /// <summary>
 /// Represents an album in the music store.

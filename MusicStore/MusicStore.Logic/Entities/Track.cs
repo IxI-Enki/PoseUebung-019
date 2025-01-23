@@ -1,4 +1,4 @@
-﻿namespace MusicStore.Logic.Models
+﻿namespace MusicStore.Logic.Entities
 {
         /// <summary>
         /// Represents a track in the music store.

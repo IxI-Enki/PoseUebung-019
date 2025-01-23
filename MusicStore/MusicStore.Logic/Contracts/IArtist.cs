@@ -1,4 +1,6 @@
 ﻿
+using MusicStore.Logic.Entities;
+
 namespace MusicStore.Logic.Contracts;
 
 /// <summary>
