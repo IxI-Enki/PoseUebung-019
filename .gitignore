@@ -4,3 +4,5 @@
 
 /.vs
 /MusicStore/.vs/MusicStore
+/MusicStore/MusicStore.ConApp/obj
+/MusicStore/MusicStore.Logic/obj
