@@ -1,4 +1,6 @@
 ﻿using MusicStoreContext = MusicStore.Logic.DataContext.MusicStoreContext;
+using IContext = MusicStore.Logic.SqLite.Contracts.IContext;
+
 namespace MusicStore.ConApp;
 
 internal class Program
@@ -9,7 +11,7 @@ internal class Program
                 string input = string.Empty;
 
                 MusicStoreContext context = new( );
-                MusicStore.Logic.SqLite.Contracts.IContext? contextb = MusicStore.Logic.SqLite.DataContext.Factory.CreateContext( );
+                IContext? contextSQL = MusicStore.Logic.SqLite.DataContext.Factory.CreateContext( );
 
                 int mainChoice = 0;
                 while(input.ToLower( ) != "x")
@@ -24,7 +26,7 @@ internal class Program
 
                         input = GetUserInput( ref index );
 
-                        mainChoice = PrintChosenAction( input , context , ref mainChoice );
+                        mainChoice = PrintChosenAction( input , context , contextSQL , ref mainChoice );
 
                         ResetChoice( ref index );
                 }
@@ -48,7 +50,7 @@ internal class Program
                 return input;
         }
         private static bool ParseUserInput( string input , out int choice ) => int.TryParse( input , out choice );
-        private static int PrintChosenAction( string input , MusicStoreContext context , ref int mainChoice )
+        private static int PrintChosenAction( string input , MusicStoreContext context , IContext sqlContexts , ref int mainChoice )
         {
                 if(ParseUserInput( input , out int choice ))
                 {
@@ -64,7 +66,7 @@ internal class Program
                                         StatisticsPrintChoice( context , choice , ref mainChoice );
                                         break;
                                 case 3:
-
+                                        SQLitePrintChoice( sqlContexts , choice , ref mainChoice );
                                         break;
                                 default:
                                         break;
@@ -80,7 +82,6 @@ internal class Program
                 Console.ReadLine( );
                 index = 1;
         }
-
 
         private static void PrintMainMenuLegend( ref int index )
         {
@@ -104,7 +105,7 @@ internal class Program
                                 break;
 
                         case 3:
-
+                                SQLitePrintLegend( ref index );
                                 break;
                         default:
                                 break;
@@ -234,20 +235,58 @@ internal class Program
         }
 
 
-        //  private static void AddArtist( Logic.Contracts.IContext context )
-        //  {
-        //          Console.WriteLine( );
-        //          Console.WriteLine( "Add Artist:" );
-        //          Console.WriteLine( "------------" );
-        //
-        //          var artist = new Logic.Entities.Artist( );
-        //
-        //          Console.Write( "Name [256]:          " );
-        //          artist.Name = Console.ReadLine( )!;
-        //
-        //          context.ArtistDbSet!.Add( artist );
-        //
-        //          context.SaveChanges( );
-        //  }
+        private static void SQLitePrintLegend( ref int index )
+        {
+                Console.WriteLine( $"{nameof( PrintArtists )}...{index++}" );
+                Console.WriteLine( $"{nameof( AddArtist )}....{index++}" );
+                Console.WriteLine( );
+                Console.WriteLine( $"zurück.........0" );
+        }
+        private static void SQLitePrintChoice( IContext context , int choice , ref int mainChoice )
+        {
+                switch(choice)
+                {
+                        case 0:
+                                mainChoice = 0;
+                                break;
+                        case 1:
+                                PrintArtists( context );
+                                break;
+                        case 2:
+                                AddArtist( context );
+                                break;
+                        case 3:
+                                break;
+                        case 4:
+                                break;
+                        default:
+                                break;
+                }
+        }
+
+        private static void AddArtist( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Add Artist:" );
+                Console.WriteLine( "------------" );
+
+                var artist = new MusicStore.Logic.SqLite.Entities.Artist( );
+
+                Console.Write( "Name [256]:          " );
+                artist.Name = Console.ReadLine( )!;
+
+                context.ArtistSet!.Add( artist );
+
+                context.SaveChanges( );
+        }
+        private static void PrintArtists( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Artists:" );
+                Console.WriteLine( "-------" );
+
+                foreach(var item in context.ArtistSet!)
+                        Console.WriteLine( $"{item}" );
+        }
 
 }
