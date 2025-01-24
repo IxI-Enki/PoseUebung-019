@@ -5,6 +5,7 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A4EA9F6B-8993-44C1-934A-C12887DF5B97}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
@@ -13,6 +14,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{47A786DB-A975-4769-A41C-4FEDE6DB8A75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicStore.ConApp", "MusicStore.ConApp\MusicStore.ConApp.csproj", "{B47E29A1-25E6-4B01-B3F7-5AA180017CFD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0AF8C750-5F9E-437A-9A87-AC1C1C3BAD85} = {0AF8C750-5F9E-437A-9A87-AC1C1C3BAD85}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicStore.Logic", "MusicStore.Logic\MusicStore.Logic.csproj", "{17DA5BB8-DD1D-498C-8101-43CE64302341}"
 EndProject
@@ -20,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagrams", "Diagrams", "{1A
 	ProjectSection(SolutionItems) = preProject
 		..\diagrams\ClassDiagram-MusicStore.md = ..\diagrams\ClassDiagram-MusicStore.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicStore.Logic.SqLite", "MusicStore.Logic.SqLite\MusicStore.Logic.SqLite.csproj", "{0AF8C750-5F9E-437A-9A87-AC1C1C3BAD85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +41,10 @@ Global
 		{17DA5BB8-DD1D-498C-8101-43CE64302341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17DA5BB8-DD1D-498C-8101-43CE64302341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17DA5BB8-DD1D-498C-8101-43CE64302341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF8C750-5F9E-437A-9A87-AC1C1C3BAD85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF8C750-5F9E-437A-9A87-AC1C1C3BAD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF8C750-5F9E-437A-9A87-AC1C1C3BAD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF8C750-5F9E-437A-9A87-AC1C1C3BAD85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,5 +53,6 @@ Global
 		{B47E29A1-25E6-4B01-B3F7-5AA180017CFD} = {73F92C35-835B-4E2B-9B42-3233789EAE61}
 		{17DA5BB8-DD1D-498C-8101-43CE64302341} = {47A786DB-A975-4769-A41C-4FEDE6DB8A75}
 		{1A27E73E-972A-4584-B9FA-78076C01560B} = {A4EA9F6B-8993-44C1-934A-C12887DF5B97}
+		{0AF8C750-5F9E-437A-9A87-AC1C1C3BAD85} = {47A786DB-A975-4769-A41C-4FEDE6DB8A75}
 	EndGlobalSection
 EndGlobal

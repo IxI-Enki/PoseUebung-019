@@ -9,3 +9,8 @@
 /MusicStore/MusicStore.ConApp/bin/Debug/net8.0
 /MusicStore/MusicStore.Logic/bin/Debug/net8.0
 /MusicStore/.vs/ProjectEvaluation
+/MusicStore/MusicStore.Logic.SqLite/obj
+/MusicStore/.editorconfig
+/MusicStore/MusicStore.Logic.SqLite/Migrations
+/MusicStore/MusicStore.Logic.SqLite/bin/Debug/net8.0
+/MusicStore/MusicStore.Logic/Migrations

@@ -1,4 +1,5 @@
-﻿namespace MusicStore.ConApp;
+﻿using MusicStoreContext = MusicStore.Logic.DataContext.MusicStoreContext;
+namespace MusicStore.ConApp;
 
 internal class Program
 {
@@ -8,7 +9,7 @@ internal class Program
                 string input = string.Empty;
 
                 MusicStoreContext context = new( );
-                //  Logic.Contracts.IContext? contextb = Logic.DataContext.Factory.CreateContext( );
+                MusicStore.Logic.SqLite.Contracts.IContext? contextb = MusicStore.Logic.SqLite.DataContext.Factory.CreateContext( );
 
                 int mainChoice = 0;
                 while(input.ToLower( ) != "x")

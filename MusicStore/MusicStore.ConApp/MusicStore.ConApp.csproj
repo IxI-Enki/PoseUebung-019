@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MusicStore.Logic.SqLite\MusicStore.Logic.SqLite.csproj" />
     <ProjectReference Include="..\MusicStore.Logic\MusicStore.Logic.csproj" />
   </ItemGroup>
 

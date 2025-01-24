@@ -1,4 +1,4 @@
-﻿///   C O N A P P   ///
+﻿///   L O G I C   ///
 /// System 
 global using System;
 global using System.Linq;
@@ -10,23 +10,20 @@ global using System.Collections.Generic;
 global using System.Runtime.CompilerServices;
 global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
+global using SQLitePCL;
 
-global using System.Linq.Dynamic.Core;
-
-/// EntityFramework
+/// EntityFramework 
 global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Sqlite;
 
-/// MusicStore 
-global using MusicStore.Logic.DataContext;
-global using MusicStore.Logic.Extensions;
-global using MusicStore.Logic.Statistics;
 /// MusikStore 
 global using MusicStore.Logic.SqLite;
 global using MusicStore.Logic.SqLite.Entities;
 global using MusicStore.Logic.SqLite.Contracts;
-// global using MusicStore.Logic.SqLite.Statistics;
-// global using MusicStore.Logic.SqLite.Extensions;
+global using MusicStore.Logic.SqLite.Statistics;
+global using MusicStore.Logic.SqLite.Extensions;
 global using MusicStore.Logic.SqLite.DataContext;
 
+
 ///   N A M E S P A C E   ///
-namespace MusicStore.ConApp;
+namespace MusicStore.Logic.SqLite;
