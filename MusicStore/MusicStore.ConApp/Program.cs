@@ -18,8 +18,8 @@ internal class Program
                         Console.WriteLine( "         MusicStore         ".BackgroundColor( "45,225,110" ).ForegroundColor( "black" ) );
                         Console.WriteLine( "============================\n".ForegroundColor( "45,225,110" ) );
 
-                        Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintArtistAndAlbum )}....{index++}".ForegroundColor( "0,255,155" ) );
-                        Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintArtistAndTracks )}...{index++}".ForegroundColor( "15,245,140" ) );
+                        Console.WriteLine( $"{nameof( PrintArtists )}....{index++}".ForegroundColor( "0,255,155" ) );
+                        Console.WriteLine( $"{nameof( AddArtist )}...{index++}".ForegroundColor( "15,245,140" ) );
                         Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintArtistAndTimes )}....{index++}".ForegroundColor( "30,235,125" ) );
                         Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintAlbumAndTracks )}....{index++}".ForegroundColor( "45,225,110" ) );
                         Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintAlbumAndTimes )}.....{index++}".ForegroundColor( "60,215,95" ) );
@@ -90,6 +90,7 @@ internal class Program
                 artist.Name = Console.ReadLine( )!;
 
                 context.ArtistSet!.Add( artist );
+
                 context.SaveChanges( );
         }
 

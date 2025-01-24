@@ -68,12 +68,20 @@ public sealed class MusicStoreContext : DbContext, IContext
         /// </summary>
         public MusicStoreContext( )
         {
-               // GenreList = LoadGenresFromCsv( "Data/genres.csv" );
-               // ArtistList = LoadArtistsFromCsv( "Data/artists.csv" );
-               // AlbumList = LoadAlbumsFromCsv( "Data/albums.csv" , ArtistList );
-               // TrackList = LoadTracksFromCsv( "Data/tracks.csv" , GenreList , AlbumList );
-               // ArtistList.ForEach( a => a.Albums = AlbumList.Where( e => e.ArtistId == a.Id ).ToList( ) );
-               // ArtistSet!.ForEachAsync( a => a.Albums = AlbumList.Where( e => e.ArtistId == a.Id ).ToList( ) );
+                // GenreList = LoadGenresFromCsv( "Data/genres.csv" );
+                ArtistList = LoadArtistsFromCsv( "Data/artists.csv" );
+                if(ArtistList != null)
+                {
+                        // AddRange will add all items from the list to the DbSet
+                        ArtistSet!.AddRange( ArtistList );
+                        // Save changes to apply to the database
+                        SaveChanges( );
+                }
+
+                // AlbumList = LoadAlbumsFromCsv( "Data/albums.csv" , ArtistList );
+                // TrackList = LoadTracksFromCsv( "Data/tracks.csv" , GenreList , AlbumList );
+                // ArtistList.ForEach( a => a.Albums = AlbumList.Where( e => e.ArtistId == a.Id ).ToList( ) );
+
         }
 
         #endregion
