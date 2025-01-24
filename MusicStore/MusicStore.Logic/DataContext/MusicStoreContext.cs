@@ -45,7 +45,7 @@ public sealed class MusicStoreContext : DbContext, IContext
         //
         // DbSet<Entities.Album>  AlbumDbSet { get; set; }
         //
-        //s DbSet<Entities.Track>TrackDbSet { get; set; }
+        // DbSet<Entities.Track>TrackDbSet { get; set; }
         #endregion
 
 
