@@ -1,10 +1,12 @@
-﻿namespace MusicStore.Logic.DataContext;
+﻿
+namespace MusicStore.Logic.DataContext;
 
 /// <summary>
 /// Represents the data context for the Music Store application.
 /// </summary>
 public sealed class MusicStoreContext : DbContext, IContext
 {
+
         #region FIELDS
         private static string ConnectionString = "data source=MusicStore.db";
         #endregion
@@ -16,49 +18,34 @@ public sealed class MusicStoreContext : DbContext, IContext
                 base.OnConfiguring( optionsBuilder );
         }
 
-
         #region PROPERTIES
         /// <summary>
         /// Gets or sets the collection of genres.
         /// </summary>
-        public DbSet<Entities.Genre> GenreSet { get; set; }
+        public List<Models.Genre> GenreSet { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of artists.
         /// </summary>
-        public DbSet<Entities.Artist> ArtistSet { get; set; }
+        public List<Models.Artist> ArtistSet { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of albums.
         /// </summary>
-        public DbSet<Entities.Album> AlbumSet { get; set; }
+        public List<Models.Album> AlbumSet { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of tracks.
         /// </summary>
-        public DbSet<Entities.Track> TrackSet { get; set; }
+        public List<Models.Track> TrackSet { get; set; }
 
-
-        /// <summary>
-        /// Gets or sets the collection of genres.
-        /// </summary>
-        public List<Entities.Genre>? GenreList { get; set; }
-
-        /// <summary>
-        /// Gets or sets the collection of artists.
-        /// </summary>
-        public List<Entities.Artist>? ArtistList { get; set; }
-
-        /// <summary>
-        /// Gets or sets the collection of albums.
-        /// </summary>
-        public List<Entities.Album>? AlbumList { get; set; }
-
-        /// <summary>
-        /// Gets or sets the collection of tracks.
-        /// </summary>
-        public List<Entities.Track>? TrackList { get; set; }
-
+        // DbSet<Entities.Genre> GenreDbSet { get; set; }
+        //
+        // DbSet<Entities.Artist>ArtistDbSet { get; set; }
+        //
+        // DbSet<Entities.Album>  AlbumDbSet { get; set; }
+        //
+        //s DbSet<Entities.Track>TrackDbSet { get; set; }
         #endregion
 
 
@@ -68,23 +55,14 @@ public sealed class MusicStoreContext : DbContext, IContext
         /// </summary>
         public MusicStoreContext( )
         {
-                // GenreList = LoadGenresFromCsv( "Data/genres.csv" );
-                ArtistList = LoadArtistsFromCsv( "Data/artists.csv" );
-                if(ArtistList != null)
-                {
-                        // AddRange will add all items from the list to the DbSet
-                        ArtistSet!.AddRange( ArtistList );
-                        // Save changes to apply to the database
-                        SaveChanges( );
-                }
+                GenreSet = LoadGenresFromCsv( "Data/genres.csv" );
+                ArtistSet = LoadArtistsFromCsv( "Data/artists.csv" );
+                AlbumSet = LoadAlbumsFromCsv( "Data/albums.csv" , ArtistSet );
+                TrackSet = LoadTracksFromCsv( "Data/tracks.csv" , GenreSet , AlbumSet );
 
-                // AlbumList = LoadAlbumsFromCsv( "Data/albums.csv" , ArtistList );
-                // TrackList = LoadTracksFromCsv( "Data/tracks.csv" , GenreList , AlbumList );
-                // ArtistList.ForEach( a => a.Albums = AlbumList.Where( e => e.ArtistId == a.Id ).ToList( ) );
-
+                ArtistSet.ForEach( a => a.Albums = AlbumSet.Where( e => e.ArtistId == a.Id ).ToList( ) );
         }
-
-        #endregion
+        #endregion 
 
 
         #region METHODS
@@ -93,13 +71,13 @@ public sealed class MusicStoreContext : DbContext, IContext
         /// </summary>
         /// <param name="path">The path to the CSV file.</param>
         /// <returns>A list of genres.</returns>
-        private static List<Entities.Genre> LoadGenresFromCsv( string path )
+        private static List<Models.Genre> LoadGenresFromCsv( string path )
         {
                 var result = File
                                 .ReadAllLines( path )
                                 .Skip( 1 )
                                 .Select( e => e.Split( ';' ) )
-                                .Select( e => new Entities.Genre( )
+                                .Select( e => new Models.Genre( )
                                 {
                                         Id = Convert.ToInt32( e[ 0 ] ) ,
                                         Name = e[ 1 ] ,
@@ -113,13 +91,13 @@ public sealed class MusicStoreContext : DbContext, IContext
         /// </summary>
         /// <param name="path">The path to the CSV file.</param>
         /// <returns>A list of artists.</returns>
-        private static List<Entities.Artist> LoadArtistsFromCsv( string path )
+        private static List<Models.Artist> LoadArtistsFromCsv( string path )
         {
                 var result = File
                                 .ReadAllLines( path )
                                 .Skip( 1 )
                                 .Select( e => e.Split( ';' ) )
-                                .Select( e => new Entities.Artist( )
+                                .Select( e => new Models.Artist( )
                                 {
                                         Id = Convert.ToInt32( e[ 0 ] ) ,
                                         Name = e[ 1 ] ,
@@ -134,13 +112,13 @@ public sealed class MusicStoreContext : DbContext, IContext
         /// <param name="path">The path to the CSV file.</param>
         /// <param name="artists">The collection of artists.</param>
         /// <returns>A list of albums.</returns>
-        private static List<Entities.Album> LoadAlbumsFromCsv( string path , IEnumerable<Entities.Artist> artists )
+        private static List<Models.Album> LoadAlbumsFromCsv( string path , IEnumerable<Models.Artist> artists )
         {
                 var result = File
                                 .ReadAllLines( path )
                                 .Skip( 1 )
                                 .Select( e => e.Split( ';' ) )
-                                .Select( e => new Entities.Album( )
+                                .Select( e => new Models.Album( )
                                 {
                                         Id = Convert.ToInt32( e[ 0 ] ) ,
                                         Title = e[ 1 ] ,
@@ -158,13 +136,13 @@ public sealed class MusicStoreContext : DbContext, IContext
         /// <param name="genres">The collection of genres.</param>
         /// <param name="albums">The collection of albums.</param>
         /// <returns>A list of tracks.</returns>
-        private static List<Entities.Track> LoadTracksFromCsv( string path , IEnumerable<Entities.Genre> genres , IEnumerable<Entities.Album> albums )
+        private static List<Models.Track> LoadTracksFromCsv( string path , IEnumerable<Models.Genre> genres , IEnumerable<Models.Album> albums )
         {
                 var result = File
                                 .ReadAllLines( path )
                                 .Skip( 1 )
                                 .Select( e => e.Split( ";" ) )
-                                .Select( e => new Entities.Track( )
+                                .Select( e => new Models.Track( )
                                 {
                                         Id = Convert.ToInt32( e[ 0 ] ) ,
                                         Title = e[ 1 ] ,
@@ -179,6 +157,5 @@ public sealed class MusicStoreContext : DbContext, IContext
                                 } ).ToList( );
                 return result;
         }
-
         #endregion
 }

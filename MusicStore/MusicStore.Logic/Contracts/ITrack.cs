@@ -46,11 +46,11 @@ public interface ITrack : IIdentifiable
         /// <summary>
         /// Gets or sets the album associated with the track.
         /// </summary>
-        Album? Album { get; set; }
+        Models.Album? Album { get; set; }
 
         /// <summary>
         /// Gets or sets the genre associated with the track.
         /// </summary>
-        Genre? Genre { get; set; }
+        Models.Genre? Genre { get; set; }
         #endregion Navigation Properties
 }

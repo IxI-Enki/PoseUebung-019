@@ -1,5 +1,5 @@
-﻿namespace MusicStore.Logic.Entities;
-/*
+﻿namespace MusicStore.Logic.Models;
+
 /// <summary>
 /// Represents an abstract base class for identifiable objects.
 /// </summary>
@@ -47,4 +47,3 @@ public abstract partial class IdentityObject : Contracts.IIdentifiable
                 return Id.ToString( );
         }
 }
-*/

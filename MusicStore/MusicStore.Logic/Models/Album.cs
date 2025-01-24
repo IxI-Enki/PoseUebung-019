@@ -1,24 +1,20 @@
-﻿namespace MusicStore.Logic.Entities;
-/*
+﻿namespace MusicStore.Logic.Models;
+
 /// <summary>
 /// Represents an album in the music store.
 /// </summary>
-[Table( "Albums" )]
-[Index( nameof( Title ) , IsUnique = true )]
 [Serializable]
-public partial class Album : EntityObject, IAlbum
+public partial class Album : Models.IdentityObject, IAlbum
 {
         #region Properties
         /// <summary>
         /// Gets or sets the artist ID.
         /// </summary>
-        [MaxLength(100)]
         public int ArtistId { get; set; }
 
         /// <summary>
         /// Gets or sets the title of the album.
         /// </summary>
-        [MaxLength( 100 )]
         public string Title { get; set; } = string.Empty;
         #endregion Properties
 
@@ -26,12 +22,12 @@ public partial class Album : EntityObject, IAlbum
         /// <summary>
         /// Gets or sets the artist associated with the album.
         /// </summary>
-        public Artist? Artist { get; set; }
+        public Models.Artist? Artist { get; set; }
 
         /// <summary>
         /// Gets or sets the tracks in the album.
         /// </summary>
-        public List<Entities.Track> Tracks { get; set; } = new List<Entities.Track>( );
+        public List<Models.Track> Tracks { get; set; } = new List<Models.Track>( );
         #endregion Navigation Properties
 
         /// <summary>
@@ -39,11 +35,11 @@ public partial class Album : EntityObject, IAlbum
         /// </summary>
         /// <param name="other">The other album to copy properties from.</param>
         /// <exception cref="ArgumentNullException">Thrown when the other album is null.</exception>
-        public void CopyProperties( IAlbum other )
+        public void CopyProperties( Contracts.IAlbum other )
         {
                 ArgumentNullException.ThrowIfNull( other );
 
-                base.CopyProperties( other );
+                Id = other.Id;
 
                 ArtistId = other.ArtistId;
                 Title = other.Title;
@@ -58,4 +54,3 @@ public partial class Album : EntityObject, IAlbum
                 return $"{Title}";
         }
 }
-*/

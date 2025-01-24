@@ -2,7 +2,7 @@
 
 public static class MusicStoreStatistics
 {
-        public static void PrintArtistAndAlbum( Logic.Contracts.IContext context )
+        public static void PrintArtistAndAlbum( DataContext.MusicStoreContext context )
         {
                 context.ArtistSet
                         .Where( a => a.Albums.Count > 1 )
@@ -19,7 +19,7 @@ public static class MusicStoreStatistics
                         } );
         }
 
-        public static void PrintArtistAndTracks( Logic.Contracts.IContext context )
+        public static void PrintArtistAndTracks( DataContext.MusicStoreContext context )
         {
                 var query = context.TrackSet
                          .Select( a => new
@@ -47,7 +47,7 @@ public static class MusicStoreStatistics
                      } );
         }
 
-        public static void PrintArtistAndTimes( Logic.Contracts.IContext context )
+        public static void PrintArtistAndTimes( DataContext.MusicStoreContext context )
         {
                 var query = context.TrackSet
                          .Select( a => new
@@ -73,7 +73,7 @@ public static class MusicStoreStatistics
                      } );
         }
 
-        public static void PrintAlbumAndTracks( Logic.Contracts.IContext context )
+        public static void PrintAlbumAndTracks( DataContext.MusicStoreContext context )
         {
                 var query = context.TrackSet
                          .Select( a => new
@@ -103,7 +103,7 @@ public static class MusicStoreStatistics
                      } );
         }
 
-        public static void PrintAlbumAndTimes( Logic.Contracts.IContext context )
+        public static void PrintAlbumAndTimes( DataContext.MusicStoreContext context )
         {
                 var query = context.TrackSet
                          .Select( a => new
@@ -129,7 +129,7 @@ public static class MusicStoreStatistics
                      } );
         }
 
-        public static void PrintAverageByGenre( Logic.Contracts.IContext context )
+        public static void PrintAverageByGenre( DataContext.MusicStoreContext context )
         {
                 var query = context.TrackSet
                          .Select( a => new
@@ -155,7 +155,7 @@ public static class MusicStoreStatistics
                      } );
         }
 
-        public static void PrintAverageByAlbum( Logic.Contracts.IContext context )
+        public static void PrintAverageByAlbum( DataContext.MusicStoreContext context )
         {
                 var query = context.TrackSet
                          .Select( a => new
@@ -181,7 +181,7 @@ public static class MusicStoreStatistics
                      } );
         }
 
-        public static void PrintAverageByTrack(  Logic.Contracts.IContext context )
+        public static void PrintAverageByTrack(  DataContext.MusicStoreContext context )
         {
                 var query = context.TrackSet
                         .Select( a => new
@@ -198,7 +198,7 @@ public static class MusicStoreStatistics
                 Console.WriteLine( $"{query / 1000.0,10:f2}".ForegroundColor( "20,255,120" ) + "[sec]" );
         }
 
-        public static void PrintGenreAndTitles( Logic.Contracts.IContext context )
+        public static void PrintGenreAndTitles( DataContext.MusicStoreContext context )
         {
                 var query = context.TrackSet
                          .Select( a => new

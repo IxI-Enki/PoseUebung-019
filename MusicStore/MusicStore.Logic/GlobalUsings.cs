@@ -17,6 +17,7 @@ global using Microsoft.EntityFrameworkCore.Sqlite;
 
 /// MusikStore 
 global using MusicStore.Logic;
+global using MusicStore.Logic.Models;
 global using MusicStore.Logic.Entities;
 global using MusicStore.Logic.Contracts;
 global using MusicStore.Logic.Statistics;

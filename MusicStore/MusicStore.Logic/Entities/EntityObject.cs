@@ -1,5 +1,5 @@
 ﻿namespace MusicStore.Logic.Entities;
-
+/*
 public abstract class EntityObject : IIdentifiable
 {
         public int Id { get; set; }
@@ -11,3 +11,4 @@ public abstract class EntityObject : IIdentifiable
                 Id = other.Id;
         }
 }
+*/

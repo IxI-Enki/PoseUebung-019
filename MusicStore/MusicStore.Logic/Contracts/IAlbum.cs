@@ -21,11 +21,11 @@ public interface IAlbum : IIdentifiable
         /// <summary>
         /// Gets or sets the artist associated with the album.
         /// </summary>
-        Artist? Artist { get; set; }
+        Models.Artist? Artist { get; set; }
 
         /// <summary>
         /// Gets or sets the tracks in the album.
         /// </summary>
-        List<Track> Tracks { get; set; }
+        List<Models.Track> Tracks { get; set; }
         #endregion Navigation Properties
 }

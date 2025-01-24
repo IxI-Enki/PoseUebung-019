@@ -16,6 +16,6 @@ public interface IArtist : IIdentifiable
         /// <summary>
         /// Gets or sets the albums associated with the artist.
         /// </summary>
-        List<Album> Albums { get; set; }
+        List<Models.Album> Albums { get; set; }
         #endregion Navigation Properties
 }

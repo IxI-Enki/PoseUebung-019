@@ -6,10 +6,10 @@ internal class Program
         {
                 int index = 1;
                 string input = string.Empty;
+                MusicStoreContext context = new MusicStoreContext( );
+                //  Logic.Contracts.IContext? contextb = Logic.DataContext.Factory.CreateContext( );
 
-                Logic.Contracts.IContext? context = Logic.DataContext.Factory.CreateContext( );
-
-                // PrintGenres(context);
+                PrintGenres( context );
                 // PrintAlbums(context);
 
                 while(input.ToLower( ) != "x")
@@ -18,8 +18,8 @@ internal class Program
                         Console.WriteLine( "         MusicStore         ".BackgroundColor( "45,225,110" ).ForegroundColor( "black" ) );
                         Console.WriteLine( "============================\n".ForegroundColor( "45,225,110" ) );
 
-                        Console.WriteLine( $"{nameof( PrintArtists )}....{index++}".ForegroundColor( "0,255,155" ) );
-                        Console.WriteLine( $"{nameof( AddArtist )}...{index++}".ForegroundColor( "15,245,140" ) );
+                        Console.WriteLine( $"{nameof( PrintGenres )}....{index++}".ForegroundColor( "0,255,155" ) );
+                        Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintArtistAndTracks )}...{index++}".ForegroundColor( "15,245,140" ) );
                         Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintArtistAndTimes )}....{index++}".ForegroundColor( "30,235,125" ) );
                         Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintAlbumAndTracks )}....{index++}".ForegroundColor( "45,225,110" ) );
                         Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintAlbumAndTimes )}.....{index++}".ForegroundColor( "60,215,95" ) );
@@ -42,10 +42,10 @@ internal class Program
                                 switch(choice)
                                 {
                                         case 1:
-                                                PrintArtists( context );
+                                                MusicStoreStatistics.PrintArtistAndTimes( context );
                                                 break;
                                         case 2:
-                                                AddArtist( context );
+                                                MusicStoreStatistics.PrintArtistAndTimes( context );
                                                 break;
                                         case 3:
                                                 MusicStoreStatistics.PrintArtistAndTimes( context );
@@ -78,23 +78,23 @@ internal class Program
                         }
                 }
         }
-        private static void AddArtist( Logic.Contracts.IContext context )
-        {
-                Console.WriteLine( );
-                Console.WriteLine( "Add Artist:" );
-                Console.WriteLine( "------------" );
+        //  private static void AddArtist( Logic.Contracts.IContext context )
+        //  {
+        //          Console.WriteLine( );
+        //          Console.WriteLine( "Add Artist:" );
+        //          Console.WriteLine( "------------" );
+        //
+        //          var artist = new Logic.Entities.Artist( );
+        //
+        //          Console.Write( "Name [256]:          " );
+        //          artist.Name = Console.ReadLine( )!;
+        //
+        //          context.ArtistDbSet!.Add( artist );
+        //
+        //          context.SaveChanges( );
+        //  }
 
-                var artist = new Logic.Entities.Artist( );
-
-                Console.Write( "Name [256]:          " );
-                artist.Name = Console.ReadLine( )!;
-
-                context.ArtistSet!.Add( artist );
-
-                context.SaveChanges( );
-        }
-
-        private static void PrintGenres( Logic.Contracts.IContext context )
+        private static void PrintGenres( MusicStoreContext context )
         {
                 Console.WriteLine( );
                 Console.WriteLine( "Genres:" );
@@ -104,7 +104,7 @@ internal class Program
                         Console.WriteLine( $"{item}" );
         }
 
-        private static void PrintArtists( Logic.Contracts.IContext context )
+        private static void PrintArtists( MusicStoreContext context )
         {
                 Console.WriteLine( );
                 Console.WriteLine( "Artists:" );
@@ -114,7 +114,7 @@ internal class Program
                         Console.WriteLine( $"{item}" );
         }
 
-        private static void PrintAlbums( Logic.Contracts.IContext context )
+        private static void PrintAlbums( MusicStoreContext context )
         {
                 Console.WriteLine( );
                 Console.WriteLine( "Albums:" );
@@ -124,7 +124,7 @@ internal class Program
                         Console.WriteLine( $"{item}" );
         }
 
-        private static void PrintTracks( Logic.Contracts.IContext context )
+        private static void PrintTracks( MusicStoreContext context )
         {
                 Console.WriteLine( );
                 Console.WriteLine( "Tracks:" );

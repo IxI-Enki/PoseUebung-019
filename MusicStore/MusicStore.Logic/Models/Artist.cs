@@ -1,18 +1,15 @@
-﻿namespace MusicStore.Logic.Entities;
-/*
+﻿namespace MusicStore.Logic.Models;
+
 /// <summary>
 /// Represents an artist in the music store.
 /// </summary>
-[Table( "Artists" )]
-[Index( nameof( Name ) , IsUnique = true )]
 [Serializable]
-public partial class Artist : Entities.EntityObject, Contracts.IArtist
+public partial class Artist : IdentityObject, Contracts.IArtist
 {
         #region Properties
         /// <summary>
         /// Gets or sets the name of the artist.
         /// </summary>
-        [MaxLength(100)]
         public string Name { get; set; } = string.Empty;
         #endregion Properties
 
@@ -20,7 +17,7 @@ public partial class Artist : Entities.EntityObject, Contracts.IArtist
         /// <summary>
         /// Gets or sets the albums associated with the artist.
         /// </summary>
-        public List<Entities.Album> Albums { get; set; } = new List<Entities.Album>( );
+        public List<Models.Album> Albums { get; set; } = new List<Models.Album>( );
         #endregion Navigation Properties
 
         /// <summary>
@@ -28,12 +25,11 @@ public partial class Artist : Entities.EntityObject, Contracts.IArtist
         /// </summary>
         /// <param name="other">The other artist to copy properties from.</param>
         /// <exception cref="ArgumentNullException">Thrown when the other artist is null.</exception>
-        public void CopyProperties( IArtist other )
+        public void CopyProperties( Contracts.IArtist other )
         {
                 ArgumentNullException.ThrowIfNull( other );
 
-                base.CopyProperties( other );
-
+                Id = other.Id;
                 Name = other.Name;
         }
 
@@ -46,4 +42,3 @@ public partial class Artist : Entities.EntityObject, Contracts.IArtist
                 return $"{Name}";
         }
 }
-*/

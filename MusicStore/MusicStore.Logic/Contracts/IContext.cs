@@ -6,23 +6,33 @@ public interface IContext : IDisposable
         /// <summary>
         /// Gets or sets the collection of genres.
         /// </summary>
-        DbSet<Entities.Genre>? GenreSet { get; }
+        List<Models.Genre>? GenreSet { get; }
 
         /// <summary>
         /// Gets or sets the collection of artists.
         /// </summary>
-        DbSet<Entities.Artist>? ArtistSet { get; }
+        List<Models.Artist>? ArtistSet { get; }
 
         /// <summary>
         /// Gets or sets the collection of albums.
         /// </summary>
-        DbSet<Entities.Album>? AlbumSet { get; }
+        List<Models.Album>? AlbumSet { get; }
 
         /// <summary>
         /// Gets or sets the collection of tracks.
         /// </summary>
-        DbSet<Entities.Track>? TrackSet { get; }
-        #endregion 
+        List<Models.Track>? TrackSet { get; }
 
+
+        /*
+        DbSet<Entities.Genre>  GenreDbSet { get; }
+
+        DbSet<Entities.Artist> ArtistDbSet { get; }
+
+        DbSet<Entities.Album> AlbumDbSet { get; }
+
+        DbSet<Entities.Track>  TrackDbSet { get; }
+        */
+        #endregion
         int SaveChanges( );
 }

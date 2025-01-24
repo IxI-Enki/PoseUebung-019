@@ -1,18 +1,15 @@
-﻿namespace MusicStore.Logic.Entities;
-/*
+﻿namespace MusicStore.Logic.Models;
+
 /// <summary>
 /// Represents a music genre with an identifiable ID and a name.
 /// </summary>
-[Table( "Genres" )]
-[Index( nameof( Name ) , IsUnique = true )]
 [Serializable]
-public partial class Genre : Entities.EntityObject, Contracts. IGenre
+public partial class Genre : Models.IdentityObject, Contracts.IGenre
 {
         #region Properties
         /// <summary>
         /// Gets or sets the name of the genre.
         /// </summary>
-        [MaxLength( 100 )]
         public string Name { get; set; } = string.Empty;
         #endregion Properties
 
@@ -20,7 +17,7 @@ public partial class Genre : Entities.EntityObject, Contracts. IGenre
         /// <summary>
         /// Gets or sets the tracks associated with the genre.
         /// </summary>
-        public List<Entities.Track> Tracks { get; set; } = new List<Entities.Track>( );
+        public List<Models.Track> Tracks { get; set; } = new List<Models.Track>( );
         #endregion Navigation Properties
 
         /// <summary>
@@ -28,11 +25,11 @@ public partial class Genre : Entities.EntityObject, Contracts. IGenre
         /// </summary>
         /// <param name="other">The other genre to copy properties from.</param>
         /// <exception cref="ArgumentNullException">Thrown when the other genre is null.</exception>
-        public void CopyProperties( IGenre other )
+        public void CopyProperties( Contracts.IGenre other )
         {
                 ArgumentNullException.ThrowIfNull( other );
-                base.CopyProperties( other );
 
+                Id = other.Id;
                 Name = other.Name;
         }
 
@@ -45,4 +42,3 @@ public partial class Genre : Entities.EntityObject, Contracts. IGenre
                 return Name;
         }
 }
-*/
