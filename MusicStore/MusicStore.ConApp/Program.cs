@@ -1,7 +1,4 @@
-﻿using MusicStoreContext = MusicStore.Logic.DataContext.MusicStoreContext;
-using IContext = MusicStore.Logic.SqLite.Contracts.IContext;
-
-namespace MusicStore.ConApp;
+﻿namespace MusicStore.ConApp;
 
 internal class Program
 {
@@ -11,7 +8,7 @@ internal class Program
                 string input = string.Empty;
 
                 MusicStoreContext context = new( );
-                IContext? contextSQL = MusicStore.Logic.SqLite.DataContext.Factory.CreateContext( );
+                IContext? contextSQL = Factory.CreateContext( );
 
                 int mainChoice = 0;
                 while(input.ToLower( ) != "x")
@@ -39,8 +36,8 @@ internal class Program
         }
         private static void PrintChoicePrompt( ref int index )
         {
-                Console.WriteLine( $"Exit...................x".ForegroundColor( "red" ) );
-                Console.Write( "\nYour choice:".BackgroundColor( "255,255,255" ).ForegroundColor( "black" ) + " " );
+                Console.WriteLine( $"   Exit ................x".ForegroundColor( "red" ) );
+                Console.Write( $"\n{" ",-11}{"Your choice:".BackgroundColor( "255,255,255" ).ForegroundColor( "black" )} " );
         }
         private static string GetUserInput( ref int index )
         {
@@ -78,16 +75,22 @@ internal class Program
         private static void ResetChoice( ref int index )
         {
                 Console.WriteLine( );
-                Console.Write( "Continue with Enter..." );
+                Console.Write( "  Continue with Enter..." );
                 Console.ReadLine( );
                 index = 1;
         }
 
         private static void PrintMainMenuLegend( ref int index )
         {
-                Console.WriteLine( $"Print Objects from csv Database......{index++}" );
-                Console.WriteLine( $"Print Statistics from csv Database...{index++}" );
-                Console.WriteLine( $"Manage Objects in SQLite Database....{index++}" );
+                Console.WriteLine( $"  Ältere Übungen:       ".ForegroundColor( "160,160,160" ) );
+                Console.WriteLine( $"        ( CSV Database )".ForegroundColor( "160,160,160" ) );
+                Console.WriteLine( $"   Print Objects .......{index++}".ForegroundColor( "100,100,100" ) );
+                Console.WriteLine( $"   Print Statistics ....{index++}".ForegroundColor( "100,100,100" ) );
+                Console.WriteLine( );
+                Console.WriteLine( $"  Aktuelle Übung:       ".ForegroundColor( "200,255,200" ) );
+                Console.WriteLine( $"     ( SQLite Database )".ForegroundColor( "200,255,200" ) );
+                Console.WriteLine( $"   Manage Objects ......{index++}".ForegroundColor( "120,255,120" ) );
+                Console.WriteLine( );
                 index = 1;
         }
         private static int PrintMainMenu( ref int index , ref int mainChoice )
@@ -115,12 +118,12 @@ internal class Program
 
         private static void NormalPrintLegend( ref int index )
         {
-                Console.WriteLine( $"{nameof( PrintArtists )}...{index++}" );
-                Console.WriteLine( $"{nameof( PrintGenres )}....{index++}" );
-                Console.WriteLine( $"{nameof( PrintAlbums )}....{index++}" );
-                Console.WriteLine( $"{nameof( PrintTracks )}....{index++}" );
+                Console.WriteLine( $"   {nameof( PrintArtists )} ........{index++}".ForegroundColor( "0,255,155" ) );
+                Console.WriteLine( $"   {nameof( PrintGenres )} .........{index++}".ForegroundColor( "15,245,140" ) );
+                Console.WriteLine( $"   {nameof( PrintAlbums )} .........{index++}".ForegroundColor( "30,235,125" ) );
+                Console.WriteLine( $"   {nameof( PrintTracks )} .........{index++}".ForegroundColor( "45,225,110" ) );
                 Console.WriteLine( );
-                Console.WriteLine( $"zurück.........0" );
+                Console.WriteLine( $"   Back ................0" );
         }
         private static void NormalPrintChoice( MusicStoreContext context , int choice , ref int mainChoice )
         {
@@ -184,16 +187,16 @@ internal class Program
 
         private static void StatisticPrintLegend( ref int index )
         {
-                Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintArtistAndAlbum )}....{index++}".ForegroundColor( "0,255,155" ) );
-                Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintArtistAndTracks )}...{index++}".ForegroundColor( "15,245,140" ) );
-                Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintArtistAndTimes )}....{index++}".ForegroundColor( "30,235,125" ) );
-                Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintAlbumAndTracks )}....{index++}".ForegroundColor( "45,225,110" ) );
-                Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintAlbumAndTimes )}.....{index++}".ForegroundColor( "60,215,95" ) );
-                Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintAverageByGenre )}....{index++}".ForegroundColor( "75,205,80" ) );
-                Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintAverageByAlbum )}....{index++}".ForegroundColor( "90,195,65" ) );
-                Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintAverageByTrack )}....{index++}".ForegroundColor( "105,185,50" ) );
-                Console.WriteLine( $"{nameof( MusicStoreStatistics.PrintGenreAndTitles )}....{index++}".ForegroundColor( "120,175,35" ) );
-                Console.WriteLine( $"zurück.................0" );
+                Console.WriteLine( $"   ArtistAndAlbum ......{index++}".ForegroundColor( "0,255,155" ) );
+                Console.WriteLine( $"   ArtistAndTracks .....{index++}".ForegroundColor( "15,245,140" ) );
+                Console.WriteLine( $"   ArtistAndTimes ......{index++}".ForegroundColor( "30,235,125" ) );
+                Console.WriteLine( $"   AlbumAndTracks ......{index++}".ForegroundColor( "45,225,110" ) );
+                Console.WriteLine( $"   AlbumAndTimes  ......{index++}".ForegroundColor( "60,215,95" ) );
+                Console.WriteLine( $"   AverageByGenre ......{index++}".ForegroundColor( "75,205,80" ) );
+                Console.WriteLine( $"   AverageByAlbum ......{index++}".ForegroundColor( "90,195,65" ) );
+                Console.WriteLine( $"   AverageByTrack ......{index++}".ForegroundColor( "105,185,50" ) );
+                Console.WriteLine( $"   GenreAndTitles ......{index++}".ForegroundColor( "120,175,35" ) );
+                Console.WriteLine( $"   Back ................0" );
         }
         private static void StatisticsPrintChoice( MusicStoreContext context , int choice , ref int mainChoice )
         {
@@ -237,10 +240,27 @@ internal class Program
 
         private static void SQLitePrintLegend( ref int index )
         {
-                Console.WriteLine( $"{nameof( PrintArtists )}...{index++}" );
-                Console.WriteLine( $"{nameof( AddArtist )}....{index++}" );
+                Console.WriteLine( $"   {nameof( PrintArtists ),-13}........{index++}".ForegroundColor( "30,235,125" ) );
+                Console.WriteLine( $"   {nameof( AddArtist ),-10}...........{index++}".ForegroundColor( "45,225,110" ) );
+                Console.WriteLine( $"   {nameof( DeleteArtist ),-13}........{index++}".ForegroundColor( "60,215,95" ) );
+                Console.WriteLine( $"   {nameof( QueryArtists ),-13}........{index++}".ForegroundColor( "75,205,80" ) );
+                Console.WriteLine( );  //                       16 .....              
+                Console.WriteLine( $"   {nameof( PrintGenres ),-12}.........{index++}".ForegroundColor( "90,195,65" ) );
+                Console.WriteLine( $"   {nameof( AddGenre ),-9}............{index++}".ForegroundColor( "105,185,50" ) );
+                Console.WriteLine( $"   {nameof( DeleteGenre ),-12}.........{index++}".ForegroundColor( "120,175,35" ) );
+                Console.WriteLine( $"   {nameof( QueryGenres ),-12}.........{index++}".ForegroundColor( "135,165,50" ) );
+                Console.WriteLine( );  //                       16 .....
+                Console.WriteLine( $"   {nameof( PrintAlbums ),-12}.........{index++}".ForegroundColor( "150,155,65" ) );
+                Console.WriteLine( $"   {nameof( AddAlbum ),-9}...........{index++}".ForegroundColor( "165,145,80" ) );
+                Console.WriteLine( $"   {nameof( DeleteAlbum ),-12}........{index++}".ForegroundColor( "180,135,95" ) );
+                Console.WriteLine( $"   {nameof( QueryAlbums ),-12}........{index++}".ForegroundColor( "195,125,110" ) );
+                Console.WriteLine( );  //                       16 ....
+                Console.WriteLine( $"   {nameof( PrintTracks ),-12}........{index++}".ForegroundColor( "210,115,125" ) );
+                Console.WriteLine( $"   {nameof( AddTrack ),-9}...........{index++}".ForegroundColor( "225,105,140" ) );
+                Console.WriteLine( $"   {nameof( DeleteTrack ),-12}........{index++}".ForegroundColor( "240,95,155" ) );
+                Console.WriteLine( $"   {nameof( QueryTracks ),-12}........{index++}".ForegroundColor( "255,85,170" ) );
                 Console.WriteLine( );
-                Console.WriteLine( $"zurück.........0" );
+                Console.WriteLine( $"   Back ................0" );
         }
         private static void SQLitePrintChoice( IContext context , int choice , ref int mainChoice )
         {
@@ -256,29 +276,228 @@ internal class Program
                                 AddArtist( context );
                                 break;
                         case 3:
+                                DeleteArtist( context );
                                 break;
                         case 4:
+                                QueryArtists( context );
+                                break;
+
+                        case 5:
+                                PrintGenres( context );
+                                break;
+                        case 6:
+                                AddGenre( context );
+                                break;
+                        case 7:
+                                DeleteGenre( context );
+                                break;
+                        case 8:
+                                QueryGenres( context );
+                                break;
+
+                        case 9:
+                                PrintAlbums( context );
+                                break;
+                        case 10:
+                                AddAlbum( context );
+                                break;
+                        case 11:
+                                DeleteAlbum( context );
+                                break;
+                        case 12:
+                                QueryAlbums( context );
+                                break;
+
+                        case 13:
+                                PrintTracks( context );
+                                break;
+                        case 14:
+                                AddTrack( context );
+                                break;
+                        case 15:
+                                DeleteTrack( context );
+                                break;
+                        case 16:
+                                QueryTracks( context );
                                 break;
                         default:
                                 break;
                 }
         }
 
+        private static void QueryTracks( IContext context )
+        {
+                throw new NotImplementedException( );
+        }
+
+        private static void DeleteTrack( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Delete Track:" );
+                Console.WriteLine( "------------" );
+
+                Console.WriteLine( );
+                Console.WriteLine( "Title: " );
+                var name = Console.ReadLine( );
+                var entity = context.TrackSet.FirstOrDefault( e => e.Title == name );
+
+                if(entity != null)
+                {
+                        try
+                        {
+                                context.TrackSet.Remove( entity );
+                                context.SaveChanges( );
+                        }
+                        catch(Exception ex)
+                        {
+                                Console.WriteLine( ex.Message );
+                                Console.WriteLine( "Continue with enter..." );
+                                Console.ReadLine( );
+                        }
+                }
+        }
+
+        private static void QueryAlbums( IContext context )
+        {
+                throw new NotImplementedException( );
+        }
+
+        private static void DeleteAlbum( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Delete Album:" );
+                Console.WriteLine( "-------------" );
+
+                Console.WriteLine( );
+                Console.WriteLine( "Title: " );
+                var name = Console.ReadLine( );
+                var entity = context.AlbumSet.FirstOrDefault( e => e.Title == name );
+
+                if(entity != null)
+                {
+                        try
+                        {
+                                context.AlbumSet.Remove( entity );
+                                context.SaveChanges( );
+                        }
+                        catch(Exception ex)
+                        {
+                                Console.WriteLine( ex.Message );
+                                Console.WriteLine( "Continue with enter..." );
+                                Console.ReadLine( );
+                        }
+                }
+        }
+
+        private static void QueryGenres( IContext context )
+        {
+                throw new NotImplementedException( );
+        }
+
+        private static void DeleteGenre( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Delete Genre:" );
+                Console.WriteLine( "-------------" );
+
+                Console.WriteLine( );
+                Console.WriteLine( "Name: " );
+                var name = Console.ReadLine( );
+                var entity = context.GenreSet.FirstOrDefault( e => e.Name == name );
+
+                if(entity != null)
+                {
+                        try
+                        {
+                                context.GenreSet.Remove( entity );
+                                context.SaveChanges( );
+                        }
+                        catch(Exception ex)
+                        {
+                                Console.WriteLine( ex.Message );
+                                Console.WriteLine( "Continue with enter..." );
+                                Console.ReadLine( );
+                        }
+                }
+        }
+
+        private static void QueryArtists( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Query-Artists:" );
+                Console.WriteLine( "--------------" );
+
+                Console.WriteLine( "Query (e.g. Name.Contains(\"AC/DC\")" );
+                Console.Write( "Query: " );
+                Console.WriteLine("DOESNT WORK YET");
+
+                /*
+                var query = Console.ReadLine( )!;
+                try
+                {
+                        foreach(var artist in context.ArtistSet.Where( query ).Include( e => e.Name ))
+                        {
+                                Console.WriteLine( $"{artist}" );
+                        }
+                }
+                catch(Exception ex)
+                {
+                        Console.WriteLine( ex.Message );
+                }
+                */
+        }
+
+        private static void DeleteArtist( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Delete Artist:" );
+                Console.WriteLine( "--------------" );
+
+                Console.WriteLine( );
+                Console.WriteLine( "Name: " );
+                var name = Console.ReadLine( );
+                var entity = context.ArtistSet.FirstOrDefault( e => e.Name == name );
+
+                if(entity != null)
+                {
+                        try
+                        {
+                                context.ArtistSet.Remove( entity );
+                                context.SaveChanges( );
+                        }
+                        catch(Exception ex)
+                        {
+                                Console.WriteLine( ex.Message );
+                                Console.WriteLine( "Continue with enter..." );
+                                Console.ReadLine( );
+                        }
+                }
+        }
+
         private static void AddArtist( IContext context )
         {
                 Console.WriteLine( );
-                Console.WriteLine( "Add Artist:" );
-                Console.WriteLine( "------------" );
+                Console.WriteLine( "   Add Artist:   " );
+                Console.WriteLine( "   --------------" );
+                Console.Write( "   ArtistName [256]: " );
 
-                var artist = new MusicStore.Logic.SqLite.Entities.Artist( );
+                var artist = new Entities.Artist( );
+                var artistName = Console.ReadLine( )!;
+                var ar = context.ArtistSet.FirstOrDefault( x => x.Name == artistName );
 
-                Console.Write( "Name [256]:          " );
-                artist.Name = Console.ReadLine( )!;
-
-                context.ArtistSet!.Add( artist );
-
-                context.SaveChanges( );
+                if(artistName != string.Empty)
+                        if(ar == null)
+                        {
+                                artist.Name = artistName;
+                                context.ArtistSet!.Add( artist );
+                                context.SaveChanges( );
+                        }
+                        else
+                                Console.WriteLine( " Database already contains ".ForegroundColor( "red" ) + $"{artistName}".BackgroundColor( "200,20,20" ).ForegroundColor( "black" ) );
+                else if(artistName == string.Empty)
+                        Console.WriteLine( " can't add empty string ".BackgroundColor( "200,20,20" ).ForegroundColor( "black" ) );
         }
+
         private static void PrintArtists( IContext context )
         {
                 Console.WriteLine( );
@@ -288,5 +507,86 @@ internal class Program
                 foreach(var item in context.ArtistSet!)
                         Console.WriteLine( $"{item}" );
         }
+        private static void PrintGenres( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Genres:" );
+                Console.WriteLine( "-------" );
 
+                foreach(var item in context.GenreSet!)
+                        Console.WriteLine( $"{item}" );
+        }
+        private static void AddGenre( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "   Add Genre:    " );
+                Console.WriteLine( "   --------------" );
+                Console.Write( "   Genre-Name [256]: " );
+
+                var genre = new Entities.Genre( );
+                var genreName = Console.ReadLine( )!;
+                var gr = context.GenreSet.FirstOrDefault( x => x.Name == genreName );
+
+                if(genreName != string.Empty)
+                        if(gr == null)
+                        {
+                                genre.Name = genreName;
+                                context.GenreSet!.Add( genre );
+                                context.SaveChanges( );
+                        }
+                        else
+                                Console.WriteLine( " Database already contains ".ForegroundColor( "red" ) + $"{genreName}".BackgroundColor( "200,20,20" ).ForegroundColor( "black" ) );
+                else if(genreName == string.Empty)
+                        Console.WriteLine( "   can't add empty string ".BackgroundColor( "200,20,20" ).ForegroundColor( "black" ) );
+
+        }
+        private static void PrintAlbums( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Albums:" );
+                Console.WriteLine( "-------" );
+
+                foreach(var item in context.AlbumSet!)
+                        Console.WriteLine( $"{item}" );
+        }
+        private static void AddAlbum( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Add Album:" );
+                Console.WriteLine( "------------" );
+
+                var album = new Entities.Album( );
+
+                Console.Write( "Name [256]:          " );
+                album.Title = Console.ReadLine( )!;
+
+                context.AlbumSet!.Add( album );
+
+                context.SaveChanges( );
+        }
+
+        private static void PrintTracks( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Tracks:" );
+                Console.WriteLine( "-------" );
+
+                foreach(var item in context.TrackSet!)
+                        Console.WriteLine( $"{item}" );
+        }
+        private static void AddTrack( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "Add Track:" );
+                Console.WriteLine( "------------" );
+
+                var track = new Entities.Track( );
+
+                Console.Write( "Name [256]:          " );
+                track.Title = Console.ReadLine( )!;
+
+                context.TrackSet!.Add( track );
+
+                context.SaveChanges( );
+        }
 }
