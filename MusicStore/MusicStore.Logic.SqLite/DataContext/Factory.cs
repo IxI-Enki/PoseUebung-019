@@ -13,7 +13,6 @@ public static class Factory
         {
                 var result = new MusicStoreContext( );
 
-
                 Batteries.Init( );
 
                 result.Database.EnsureCreated( );

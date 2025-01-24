@@ -1,5 +1,5 @@
 ﻿namespace MusicStore.Logic.SqLite.Entities;
- 
+
 /// <summary>
 /// Represents an album in the music store.
 /// </summary>
@@ -12,13 +12,13 @@ public partial class Album : EntityObject, IAlbum
         /// <summary>
         /// Gets or sets the artist ID.
         /// </summary>
-        [MaxLength(100)]
+        [MaxLength( 256 )]
         public int ArtistId { get; set; }
 
         /// <summary>
         /// Gets or sets the title of the album.
         /// </summary>
-        [MaxLength( 100 )]
+        [MaxLength( 256 )]
         public string Title { get; set; } = string.Empty;
         #endregion Properties
 
@@ -58,4 +58,3 @@ public partial class Album : EntityObject, IAlbum
                 return $"{Title}";
         }
 }
-    

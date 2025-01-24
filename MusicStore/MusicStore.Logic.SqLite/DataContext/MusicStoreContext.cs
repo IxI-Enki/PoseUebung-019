@@ -5,13 +5,12 @@
 /// </summary>
 public sealed class MusicStoreContext : DbContext, IContext
 {
-
         #region FIELDS
         private static string ConnectionString = "data source=MusicStore.db";
         #endregion
+
         protected override void OnConfiguring( DbContextOptionsBuilder optionsBuilder )
         {
-
                 optionsBuilder.UseSqlite( ConnectionString );
 
                 base.OnConfiguring( optionsBuilder );

@@ -12,7 +12,7 @@ public partial class Artist : Entities.EntityObject, Contracts.IArtist
         /// <summary>
         /// Gets or sets the name of the artist.
         /// </summary>
-        [MaxLength( 100 )]
+        [MaxLength( 256 )]
         public string Name { get; set; } = string.Empty;
         #endregion Properties
 

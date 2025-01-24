@@ -12,43 +12,43 @@ public partial class Track : Entities.EntityObject, Contracts.ITrack
         /// <summary>
         /// Gets or sets the album ID.
         /// </summary>
-        [MaxLength(100)]
+        [MaxLength( 256 )]
         public int AlbumId { get; set; }
 
         /// <summary>
         /// Gets or sets the genre ID.
         /// </summary>
-        [MaxLength( 100 )]
+        [MaxLength( 256 )]
         public int GenreId { get; set; }
 
         /// <summary>
         /// Gets or sets the title of the track.
         /// </summary>
-        [MaxLength(100)]
+        [MaxLength( 256 )]
         public string Title { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the composer of the track.
         /// </summary>
-        [MaxLength( 100 )]
+        [MaxLength( 256 )]
         public string Composer { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the duration of the track in milliseconds.
         /// </summary>
-        [MaxLength( 100 )]
+        [MaxLength( 600000 )]
         public long Milliseconds { get; set; }
 
         /// <summary>
         /// Gets or sets the size of the track in bytes.
         /// </summary>
-        [MaxLength( 100 )]
+        [MaxLength( 2048 )]
         public long Bytes { get; set; }
 
         /// <summary>
         /// Gets or sets the unit price of the track.
         /// </summary>
-        [MaxLength( 100 )]
+        [MaxLength( 256 )]
         public double UnitPrice { get; set; }
         #endregion Properties
 
