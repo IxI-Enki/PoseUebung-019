@@ -721,33 +721,81 @@ internal class Program
                         Console.WriteLine( "   can't add empty string ".BackgroundColor( "200,20,20" ).ForegroundColor( "black" ) );
         }
 
-        private static void QueryGenres( IContext context ) { }
-        private static void QueryAlbums( IContext context ) { }
-        private static void QueryArtists( IContext context )
+        private static void QueryGenres( IContext context ) 
         {
                 Console.WriteLine( );
-                Console.WriteLine( "   Query-Artists:                        " );
+                Console.WriteLine( "   Query-Genres:                         " );
                 Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ " );
-                Console.WriteLine( "   Query (e.g. Name.Contains(\"AC/DC\")  " );
+                Console.WriteLine( "   Query    e.g. Name.Contains(\"AC/DC\") " );
                 Console.Write( "   Query: " );
 
-                Console.WriteLine( "DOESNT WORK YET" );
-
-                /*
                 var query = Console.ReadLine( )!;
                 try
                 {
-                        foreach(var artist in context.ArtistSet.Where( query ).Include( e => e.Name ))
-                        {
-                                Console.WriteLine( $"{artist}" );
-                        }
+                        foreach(var genre in context.GenreSet.AsQueryable( ).Where( query ).Include( e => e.Tracks))
+                                Console.WriteLine( $"{genre}" );
                 }
                 catch(Exception ex)
                 {
                         Console.WriteLine( ex.Message );
                 }
-                */
         }
-        private static void QueryTracks( IContext context ) { }
+        private static void QueryAlbums( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "   Query-Albums:                         " );
+                Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ " );
+                Console.WriteLine( "   Query    e.g. Name.Contains(\"AC/DC\") " );
+                Console.Write( "   Query: " );
+
+                var query = Console.ReadLine( )!;
+                try
+                {
+                        foreach(var album in context.AlbumSet.AsQueryable( ).Where( query ).Include( e => e.Tracks))
+                                Console.WriteLine( $"{album.AlbumInformation( )}" );
+                }
+                catch(Exception ex)
+                {
+                        Console.WriteLine( ex.Message );
+                }
+        }
+        private static void QueryArtists( IContext context )
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "   Query-Artists:                        " );
+                Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ " );
+                Console.WriteLine( "   Query    e.g. Name.Contains(\"AC/DC\") " );
+                Console.Write( "   Query: " );
+
+                var query = Console.ReadLine( )!;
+                try
+                {
+                        foreach(var artist in context.ArtistSet.AsQueryable( ).Where( query ).Include( e => e.Albums ))
+                                Console.WriteLine( $"{artist.ArtistInformation( )}" );
+                }
+                catch(Exception ex)
+                {
+                        Console.WriteLine( ex.Message );
+                }
+        }
+        private static void QueryTracks( IContext context ) 
+        {
+                Console.WriteLine( );
+                Console.WriteLine( "   Query-Tracks:                         " );
+                Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ " );
+                Console.WriteLine( "   Query    e.g. Name.Contains(\"AC/DC\") " );
+                Console.Write( "   Query: " );
+
+                var query = Console.ReadLine( )!;
+                try
+                {
+                        foreach(var track in context.TrackSet.AsQueryable( ).Where( query ).Include( e => e.Album))
+                                Console.WriteLine( $"{track.TrackInformation( )}" );
+                }
+                catch(Exception ex)
+                {
+                        Console.WriteLine( ex.Message );
+                }
+        }
 
 }
