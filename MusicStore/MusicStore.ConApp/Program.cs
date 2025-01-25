@@ -31,12 +31,15 @@ internal class Program
 
         private static void PrintHeader( )
         {
-                Console.WriteLine( "         MusicStore         ".BackgroundColor( "45,225,110" ).ForegroundColor( "black" ) );
-                Console.WriteLine( "============================\n".ForegroundColor( "45,225,110" ) );
+                Console.WriteLine(
+                        "░▒▓█".BackgroundColor( "black" ).ForegroundColor( "45,225,110" ) +
+                        "     MusicStore     ".BackgroundColor( "45,225,110" ).ForegroundColor( "black" ) +
+                        "█▓▒░".BackgroundColor( "black" ).ForegroundColor( "45,225,110" ) );
+                Console.WriteLine( "════════════════════════════\n".ForegroundColor( "45,225,110" ) );
         }
         private static void PrintChoicePrompt( ref int index )
         {
-                Console.WriteLine( $"   Exit ................x".ForegroundColor( "red" ) );
+                Console.WriteLine( $"   Exit _______________ x".ForegroundColor( "red" ) );
                 Console.Write( $"\n{" ",-11}{"Your choice:".BackgroundColor( "255,255,255" ).ForegroundColor( "black" )} " );
         }
         private static string GetUserInput( ref int index )
@@ -84,12 +87,12 @@ internal class Program
         {
                 Console.WriteLine( $"  Ältere Übungen:       ".ForegroundColor( "160,160,160" ) );
                 Console.WriteLine( $"        ( CSV Database )".ForegroundColor( "160,160,160" ) );
-                Console.WriteLine( $"   Print Objects .......{index++}".ForegroundColor( "100,100,100" ) );
-                Console.WriteLine( $"   Print Statistics ....{index++}".ForegroundColor( "100,100,100" ) );
+                Console.WriteLine( $"   Print Objects ______ {index++}".ForegroundColor( "100,100,100" ) );
+                Console.WriteLine( $"   Print Statistics ___ {index++}".ForegroundColor( "100,100,100" ) );
                 Console.WriteLine( );
                 Console.WriteLine( $"  Aktuelle Übung:       ".ForegroundColor( "200,255,200" ) );
                 Console.WriteLine( $"     ( SQLite Database )".ForegroundColor( "200,255,200" ) );
-                Console.WriteLine( $"   Manage Objects ......{index++}".ForegroundColor( "120,255,120" ) );
+                Console.WriteLine( $"   Manage Objects _____ {index++}".ForegroundColor( "120,255,120" ) );
                 Console.WriteLine( );
                 index = 1;
         }
@@ -118,12 +121,12 @@ internal class Program
 
         private static void NormalPrintLegend( ref int index )
         {
-                Console.WriteLine( $"   {nameof( PrintArtists )} ........{index++}".ForegroundColor( "0,255,155" ) );
-                Console.WriteLine( $"   {nameof( PrintGenres )} .........{index++}".ForegroundColor( "15,245,140" ) );
-                Console.WriteLine( $"   {nameof( PrintAlbums )} .........{index++}".ForegroundColor( "30,235,125" ) );
-                Console.WriteLine( $"   {nameof( PrintTracks )} .........{index++}".ForegroundColor( "45,225,110" ) );
+                Console.WriteLine( $"   {nameof( PrintArtists )} _______ {index++}".ForegroundColor( "0,255,155" ) );
+                Console.WriteLine( $"   {nameof( PrintGenres )} ________ {index++}".ForegroundColor( "15,245,140" ) );
+                Console.WriteLine( $"   {nameof( PrintAlbums )} ________ {index++}".ForegroundColor( "30,235,125" ) );
+                Console.WriteLine( $"   {nameof( PrintTracks )} ________ {index++}".ForegroundColor( "45,225,110" ) );
                 Console.WriteLine( );
-                Console.WriteLine( $"   Back ................0" );
+                Console.WriteLine( $"   Back _______________ 0" );
         }
         private static void NormalPrintChoice( MusicStoreContext context , int choice , ref int mainChoice )
         {
@@ -187,16 +190,17 @@ internal class Program
 
         private static void StatisticPrintLegend( ref int index )
         {
-                Console.WriteLine( $"   ArtistAndAlbum ......{index++}".ForegroundColor( "0,255,155" ) );
-                Console.WriteLine( $"   ArtistAndTracks .....{index++}".ForegroundColor( "15,245,140" ) );
-                Console.WriteLine( $"   ArtistAndTimes ......{index++}".ForegroundColor( "30,235,125" ) );
-                Console.WriteLine( $"   AlbumAndTracks ......{index++}".ForegroundColor( "45,225,110" ) );
-                Console.WriteLine( $"   AlbumAndTimes  ......{index++}".ForegroundColor( "60,215,95" ) );
-                Console.WriteLine( $"   AverageByGenre ......{index++}".ForegroundColor( "75,205,80" ) );
-                Console.WriteLine( $"   AverageByAlbum ......{index++}".ForegroundColor( "90,195,65" ) );
-                Console.WriteLine( $"   AverageByTrack ......{index++}".ForegroundColor( "105,185,50" ) );
-                Console.WriteLine( $"   GenreAndTitles ......{index++}".ForegroundColor( "120,175,35" ) );
-                Console.WriteLine( $"   Back ................0" );
+                Console.WriteLine( $"   ArtistAndAlbum _____ {index++}".ForegroundColor( "0,255,155" ) );
+                Console.WriteLine( $"   ArtistAndTracks ____ {index++}".ForegroundColor( "15,245,140" ) );
+                Console.WriteLine( $"   ArtistAndTimes _____ {index++}".ForegroundColor( "30,235,125" ) );
+                Console.WriteLine( $"   AlbumAndTracks _____ {index++}".ForegroundColor( "45,225,110" ) );
+                Console.WriteLine( $"   AlbumAndTimes ______ {index++}".ForegroundColor( "60,215,95" ) );
+                Console.WriteLine( $"   AverageByGenre _____ {index++}".ForegroundColor( "75,205,80" ) );
+                Console.WriteLine( $"   AverageByAlbum _____ {index++}".ForegroundColor( "90,195,65" ) );
+                Console.WriteLine( $"   AverageByTrack _____ {index++}".ForegroundColor( "105,185,50" ) );
+                Console.WriteLine( $"   GenreAndTitles _____ {index++}".ForegroundColor( "120,175,35" ) );
+                Console.WriteLine( $"   Back _______________ 0" );
+
         }
         private static void StatisticsPrintChoice( MusicStoreContext context , int choice , ref int mainChoice )
         {
@@ -240,27 +244,28 @@ internal class Program
 
         private static void SQLitePrintLegend( ref int index )
         {
-                Console.WriteLine( $"   {nameof( PrintArtists ),-13}........{index++}".ForegroundColor( "30,235,125" ) );
-                Console.WriteLine( $"   {nameof( AddArtist ),-10}...........{index++}".ForegroundColor( "45,225,110" ) );
-                Console.WriteLine( $"   {nameof( DeleteArtist ),-13}........{index++}".ForegroundColor( "60,215,95" ) );
-                Console.WriteLine( $"   {nameof( QueryArtists ),-13}........{index++}".ForegroundColor( "75,205,80" ) );
+                Console.WriteLine( $"   {nameof( PrintArtists ),-13} ______ {index++}".ForegroundColor( "30,235,125" ) );
+                Console.WriteLine( $"   {nameof( AddArtist ),-10} _________ {index++}".ForegroundColor( "45,225,110" ) );
+                Console.WriteLine( $"   {nameof( DeleteArtist ),-13} ______ {index++}".ForegroundColor( "60,215,95" ) );
+                Console.WriteLine( $"   {nameof( QueryArtists ),-13} ______ {index++}".ForegroundColor( "75,205,80" ) );
                 Console.WriteLine( );  //                       16 .....              
-                Console.WriteLine( $"   {nameof( PrintGenres ),-12}.........{index++}".ForegroundColor( "90,195,65" ) );
-                Console.WriteLine( $"   {nameof( AddGenre ),-9}............{index++}".ForegroundColor( "105,185,50" ) );
-                Console.WriteLine( $"   {nameof( DeleteGenre ),-12}.........{index++}".ForegroundColor( "120,175,35" ) );
-                Console.WriteLine( $"   {nameof( QueryGenres ),-12}.........{index++}".ForegroundColor( "135,165,50" ) );
+                Console.WriteLine( $"   {nameof( PrintGenres ),-12} _______ {index++}".ForegroundColor( "90,195,65" ) );
+                Console.WriteLine( $"   {nameof( AddGenre ),-9} __________ {index++}".ForegroundColor( "105,185,50" ) );
+                Console.WriteLine( $"   {nameof( DeleteGenre ),-12} _______ {index++}".ForegroundColor( "120,175,35" ) );
+                Console.WriteLine( $"   {nameof( QueryGenres ),-12} _______ {index++}".ForegroundColor( "135,165,50" ) );
                 Console.WriteLine( );  //                       16 .....
-                Console.WriteLine( $"   {nameof( PrintAlbums ),-12}.........{index++}".ForegroundColor( "150,155,65" ) );
-                Console.WriteLine( $"   {nameof( AddAlbum ),-9}...........{index++}".ForegroundColor( "165,145,80" ) );
-                Console.WriteLine( $"   {nameof( DeleteAlbum ),-12}........{index++}".ForegroundColor( "180,135,95" ) );
-                Console.WriteLine( $"   {nameof( QueryAlbums ),-12}........{index++}".ForegroundColor( "195,125,110" ) );
+                Console.WriteLine( $"   {nameof( PrintAlbums ),-12} _______ {index++}".ForegroundColor( "150,155,65" ) );
+                Console.WriteLine( $"   {nameof( AddAlbum ),-9} _________ {index++}".ForegroundColor( "165,145,80" ) );
+                Console.WriteLine( $"   {nameof( DeleteAlbum ),-12} ______ {index++}".ForegroundColor( "180,135,95" ) );
+                Console.WriteLine( $"   {nameof( QueryAlbums ),-12} ______ {index++}".ForegroundColor( "195,125,110" ) );
                 Console.WriteLine( );  //                       16 ....
-                Console.WriteLine( $"   {nameof( PrintTracks ),-12}........{index++}".ForegroundColor( "210,115,125" ) );
-                Console.WriteLine( $"   {nameof( AddTrack ),-9}...........{index++}".ForegroundColor( "225,105,140" ) );
-                Console.WriteLine( $"   {nameof( DeleteTrack ),-12}........{index++}".ForegroundColor( "240,95,155" ) );
-                Console.WriteLine( $"   {nameof( QueryTracks ),-12}........{index++}".ForegroundColor( "255,85,170" ) );
+                Console.WriteLine( $"   {nameof( PrintTracks ),-12} ______ {index++}".ForegroundColor( "210,115,125" ) );
+                Console.WriteLine( $"   {nameof( AddTrack ),-9} _________ {index++}".ForegroundColor( "225,105,140" ) );
+                Console.WriteLine( $"   {nameof( DeleteTrack ),-12} ______ {index++}".ForegroundColor( "240,95,155" ) );
+                Console.WriteLine( $"   {nameof( QueryTracks ),-12} ______ {index++}".ForegroundColor( "255,85,170" ) );
                 Console.WriteLine( );
-                Console.WriteLine( $"   Back ................0" );
+                Console.WriteLine( $"   Back _______________ 0" );
+
         }
         private static void SQLitePrintChoice( IContext context , int choice , ref int mainChoice )
         {
@@ -429,7 +434,7 @@ internal class Program
 
                 Console.WriteLine( "Query (e.g. Name.Contains(\"AC/DC\")" );
                 Console.Write( "Query: " );
-                Console.WriteLine("DOESNT WORK YET");
+                Console.WriteLine( "DOESNT WORK YET" );
 
                 /*
                 var query = Console.ReadLine( )!;
