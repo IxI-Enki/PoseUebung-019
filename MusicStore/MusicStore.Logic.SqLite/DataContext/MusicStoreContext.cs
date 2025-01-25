@@ -1,5 +1,6 @@
-﻿namespace MusicStore.Logic.SqLite.DataContext;
+﻿using MusicStoreContext = MusicStore.Logic.DataContext.MusicStoreContext;
 
+namespace MusicStore.Logic.SqLite.DataContext;
 /// <summary>
 /// Represents the data context for the Music Store application.
 /// </summary>
@@ -15,6 +16,7 @@ public sealed class MusicStoreContext : DbContext, IContext
 
                 base.OnConfiguring( optionsBuilder );
         }
+ 
 
         #region PROPERTIES
         /// <summary>
@@ -46,12 +48,12 @@ public sealed class MusicStoreContext : DbContext, IContext
         /// </summary>
         public MusicStoreContext( )
         {
-             //   GenreSet = LoadGenresFromCsv( "Data/genres.csv" );
-             //   ArtistSet = LoadArtistsFromCsv( "Data/artists.csv" );
-             //   AlbumSet = LoadAlbumsFromCsv( "Data/albums.csv" , ArtistSet );
-             //   TrackSet = LoadTracksFromCsv( "Data/tracks.csv" , GenreSet , AlbumSet );
+                //   GenreSet = LoadGenresFromCsv( "Data/genres.csv" );
+                //   ArtistSet = LoadArtistsFromCsv( "Data/artists.csv" );
+                //   AlbumSet = LoadAlbumsFromCsv( "Data/albums.csv" , ArtistSet );
+                //   TrackSet = LoadTracksFromCsv( "Data/tracks.csv" , GenreSet , AlbumSet );
 
-            //    ArtistSet.ForEach( a => a.Albums = AlbumSet.Where( e => e.ArtistId == a.Id ).ToList( ) );
+                //    ArtistSet.ForEach( a => a.Albums = AlbumSet.Where( e => e.ArtistId == a.Id ).ToList( ) );
         }
         #endregion 
 
@@ -135,7 +137,7 @@ public sealed class MusicStoreContext : DbContext, IContext
                                 .Skip( 1 )
                                 .Select( e => e.Split( ";" ) )
                                 .Select( e => new Models.Track( )
-                                {
+                                { 
                                         Id = Convert.ToInt32( e[ 0 ] ) ,
                                         Title = e[ 1 ] ,
                                         AlbumId = Convert.ToInt32( e[ 2 ] ) ,

@@ -3,8 +3,8 @@
 /// <summary>
 /// Represents a track in the music store.
 /// </summary>
-[Table("Tracks")]
-[Index(nameof(AlbumId), IsUnique = true)]
+[Table( "Tracks" )]
+[Index( nameof( AlbumId ) , IsUnique = true )]
 [Serializable]
 public partial class Track : Entities.EntityObject, Contracts.ITrack
 {
@@ -91,5 +91,16 @@ public partial class Track : Entities.EntityObject, Contracts.ITrack
         public override string ToString( )
         {
                 return $"{Title}";
+        }
+
+        public string TrackInformation( )
+        {
+                StringBuilder result =
+                        new StringBuilder( $"   Id:{Id}       {Title}       \n" )
+                                  .Append( $"   ----------------------------\n" )
+                                  .Append( $"   Composer    : {Composer}    \n" )
+                                  .Append( $"   Genre       : {Genre}       \n" )
+                                  .Append( $"   Milliseconds: {Milliseconds}\n" );
+                return result.ToString( );
         }
 }

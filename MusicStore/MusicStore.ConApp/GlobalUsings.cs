@@ -28,5 +28,11 @@ global using MusicStore.Logic.SqLite.Contracts;
 // global using MusicStore.Logic.SqLite.Extensions;
 global using MusicStore.Logic.SqLite.DataContext;
 
+global using MusicStoreContext = MusicStore.Logic.DataContext.MusicStoreContext;
+global using IContext = MusicStore.Logic.SqLite.Contracts.IContext;
+global using Entities = MusicStore.Logic.SqLite.Entities;
+global using Factory = MusicStore.Logic.SqLite.DataContext.Factory;
+
+
 ///   N A M E S P A C E   ///
 namespace MusicStore.ConApp;

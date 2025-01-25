@@ -47,4 +47,24 @@
 
 ---
 
+- ## Ausgaben:
+  
 
+  | Hauptmenü | Menü der aktuellen Übung | Beispiel-Ausgabe |
+  |:--:|:--:|:--:|
+  | <img src="img/ms (1).png" width=300px height= 100% alt="main-menu" >  | <img src="img/ms (2).png" width=300px height= 100% alt="main-menu" >  | <img src="img/ms (3).png" width=300px height= 100% alt="main-menu" >  |
+
+---
+
+- ## Weitere Beispiele:
+
+  | <img src="img/ms (4).png" width=300px height= 100% alt="main-menu" >  | <img src="img/ms (5).png" width=300px height= 100% alt="main-menu" >  | <img src="img/ms (6).png" width=300px height= 100% alt="main-menu" >  |
+  |:--:|:--:|:--:|
+  
+
+  <div align="center">
+
+  | <img src="img/ms (7).png" width=300px height= 100% alt="main-menu" >  | <img src="img/ms (8).png" width=300px height= 100% alt="main-menu" >  |  
+  |:--:|:--:| 
+
+  </div>

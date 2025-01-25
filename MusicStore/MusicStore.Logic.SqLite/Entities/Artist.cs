@@ -21,6 +21,14 @@ public partial class Artist : Entities.EntityObject, Contracts.IArtist
         /// Gets or sets the albums associated with the artist.
         /// </summary>
         public List<Entities.Album> Albums { get; set; } = new List<Entities.Album>( );
+
+        public object ArtistInformation( )
+        {
+                StringBuilder result =
+                        new StringBuilder( $"   Id:{Id} ,      {Name}       \n" )
+                                  .Append( $"   ----------------------------\n" );
+                return result.ToString( );
+        }
         #endregion Navigation Properties
 
         /// <summary>

@@ -42,7 +42,7 @@ public partial class Genre : EntityObject, Contracts.IGenre
         /// <returns>A string that represents the current genre.</returns>
         public override string ToString( )
         {
-                return Name;
+                return $"Id: {Id}, {Name}";
         }
 }
 
