@@ -16,4 +16,8 @@
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.11-pre20241216174303" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MusicStore.Logic\MusicStore.Logic.csproj" />
+  </ItemGroup>
+
 </Project>
