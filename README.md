@@ -16,8 +16,8 @@
 
   <div align="left">
 
-  > - - [x] Implementation of SQLite Database
-  > - - [x] Implementation of Serializable
+  > - ✅ Implementation of SQLite Database
+  > - ✅ Implementation of Serializable
   > - Addition of UML-Diagrams:
   >   > - - [ ] Usecase Diagram
   >   > - - [ ] Class Diagram
