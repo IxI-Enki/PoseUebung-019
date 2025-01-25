@@ -16,8 +16,8 @@
 
   <div align="left">
 
-  > - - [ ] Implementation of SQLite Database
-  > - - [ ] Implementation of Serializable
+  > - - [x] Implementation of SQLite Database
+  > - - [x] Implementation of Serializable
   > - Addition of UML-Diagrams:
   >   > - - [ ] Usecase Diagram
   >   > - - [ ] Class Diagram
@@ -50,7 +50,7 @@
 - ## Ausgaben:
   
 
-  | Hauptmenü | Menü der aktuellen Übung | Beispiel-Ausgabe |
+  | HauptmenÃ¼ | MenÃ¼ der aktuellen Ãœbung | Beispiel-Ausgabe |
   |:--:|:--:|:--:|
   | <img src="img/ms (1).png" width=300px height= 100% alt="main-menu" >  | <img src="img/ms (2).png" width=300px height= 100% alt="main-menu" >  | <img src="img/ms (3).png" width=300px height= 100% alt="main-menu" >  |
 
