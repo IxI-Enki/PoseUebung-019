@@ -37,7 +37,7 @@
  
   <div align="left"> 
 
-  - ### *Repositories - Gehrer*:  
+  - ### *Repositories - Prof*:  
   > - [ Template - Git/Readme.md ](https://github.com/leoggehrer/MusicStore-Template/blob/master/README.md)
   > - [ Serializable - Git/Repo ](https://github.com/leoggehrer/MusicStoreSerializable-Template)
   > - [ Full Part A - Git/Readme.md ](https://github.com/leoggehrer/MusicStorePartA/blob/master/README.md)
