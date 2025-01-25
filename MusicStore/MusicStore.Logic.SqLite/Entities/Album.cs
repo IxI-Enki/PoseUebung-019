@@ -57,4 +57,16 @@ public partial class Album : EntityObject, IAlbum
         {
                 return $"{Title}";
         }
+        public string AlbumInformation( )
+        {
+                StringBuilder result =
+                        new StringBuilder( $"   Id:{Id}, {Title}      \n" )
+                                  .Append( $"   ----------------------\n" )
+                                  .Append( $"   Artist: {Artist}      \n" );
+
+                foreach(var track in Tracks)
+                        result.Append( $"   {track.ToString( )}\n" );
+
+                return result.ToString();
+        }
 }

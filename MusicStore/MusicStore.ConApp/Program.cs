@@ -148,7 +148,7 @@ internal class Program
                 Console.WriteLine( $"   Back _______________ 0" );
 
         }
-        
+
         private static int PrintMainMenu( ref int index , ref int mainChoice )
         {
                 switch(mainChoice)
@@ -313,7 +313,7 @@ internal class Program
                 Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ ".ForegroundColor( "60,220,220" ) );
 
                 foreach(var item in context.AlbumSet!)
-                        Console.WriteLine( $"   {item}   " );
+                        Console.WriteLine( $"{item.AlbumInformation( )}   " );
         }
         private static void PrintArtists( IContext context )
         {
@@ -332,7 +332,7 @@ internal class Program
                 Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ ".ForegroundColor( "60,220,220" ) );
 
                 foreach(var item in context.TrackSet!)
-                        Console.WriteLine( $"   {item}   " );
+                        Console.WriteLine( $"{item.TrackInformation( )}   " );
         }
         private static void PrintGenres( MusicStoreContext context )
         {
@@ -521,7 +521,6 @@ internal class Program
                         if(al == null)
                         {
                                 album.Title = albumTitle;
-                                context.AlbumSet!.Add( album );
 
                                 int count = 0;
                                 Console.Write( "   Artist [256]: " );
@@ -548,6 +547,8 @@ internal class Program
                                                 Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ ".ForegroundColor( "green" ) );
                                                 Console.WriteLine( $"   {album}  hinzugefügt!".ForegroundColor( "40,250,60" ) );
                                                 Console.WriteLine( $"   {ar.Name}  hinzugefügt!".ForegroundColor( "40,250,60" ) );
+                                                Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ ".ForegroundColor( "green" ) );
+                                                Console.WriteLine( album.AlbumInformation( ) );
                                                 context.SaveChanges( );
                                         }
                                 }
@@ -671,16 +672,21 @@ internal class Program
 
                                                                                 Console.Write( "   Millisecnds : " );
                                                                                 var millis = Console.ReadLine( );
-
                                                                                 int.TryParse( millis , out int mill );
                                                                                 track.Milliseconds = mill;
+
+                                                                                Console.Write( "   Composer    : " );
+                                                                                track.Composer = Console.ReadLine( )!;
 
                                                                                 Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ " );
                                                                                 Console.WriteLine( $"   {track}  hinzugefügt!".ForegroundColor( "40,250,60" ) );
                                                                                 Console.WriteLine( $"   {al.Title}  hinzugefügt!".ForegroundColor( "40,250,60" ) );
                                                                                 Console.WriteLine( $"   {al.Artist}  hinzugefügt!".ForegroundColor( "40,250,60" ) );
+                                                                                Console.WriteLine( $"   {track.Composer}  hinzugefügt!".ForegroundColor( "40,250,60" ) );
                                                                                 Console.WriteLine( $"   {g.Name}  hinzugefügt!".ForegroundColor( "40,250,60" ) );
                                                                                 Console.WriteLine( $"   {track.Milliseconds}ms  hinzugefügt!".ForegroundColor( "40,250,60" ) );
+                                                                                Console.WriteLine( "   ━━━━━━━━━━━━━━━━━━━━━━ " );
+                                                                                Console.WriteLine( track.TrackInformation( ) );
 
                                                                                 context.TrackSet.Add( track );
                                                                                 context.SaveChanges( );
